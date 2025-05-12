@@ -1,0 +1,16 @@
+# .clang-format
+
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+BreakBeforeBraces: Attach  # Opening brace on the same line
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+
+ColumnLimit: 100
+PointerAlignment: Left
+SpaceBeforeParens: ControlStatements
+SortIncludes: true

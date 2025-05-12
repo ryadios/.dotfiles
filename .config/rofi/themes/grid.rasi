@@ -1,0 +1,57 @@
+@import "../config.rasi"
+
+configuration {
+    show-icons: false;
+}
+
+* {
+    background-color: transparent;
+}
+
+mainbox {
+    padding: 0.5em;
+    children: [inputbar, listview];
+}
+
+inputbar {
+    text-color: @foreground;
+}
+
+prompt {
+    padding: 3px 10px 6px 10px;
+    background-color: inherit;
+    text-color: @foreground;
+}
+
+entry {
+    placeholder: "ara ara ~";
+}
+
+textbox {
+  vertical-align:   0.5;
+  horizontal-align: 0.5;
+}
+
+listview {
+    columns:       9;
+    lines:         7;
+    spacing: 20px;
+    cycle:         true;
+    dynamic:       true;
+    layout:        vertical;
+    flow:          horizontal;
+    reverse:       false;
+    fixed-height:  true;
+    fixed-columns: true;
+}
+
+element {
+  orientation: vertical;
+}
+
+
+element-text {
+  vertical-align:   0.5;
+  horizontal-align: 0.5;
+  font:            "SF Pro Display 24";
+}

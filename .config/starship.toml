@@ -1,0 +1,130 @@
+add_newline = false
+
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_status\
+$git_state\
+$fill\
+$cmd_duration\
+$package\
+$nodejs\
+$python\
+$java\
+$docker_context\
+$line_break\
+$character\
+"""
+
+# Use the color palette
+palette = "dracula"
+
+[directory]
+format = "[$path ]($style)"
+read_only = " "
+home_symbol = "~"
+truncation_symbol = "…/"
+truncation_length = 0
+truncate_to_repo = true
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+
+[git_branch]
+symbol = ""
+format = "([$symbol $branch]($style) )"
+only_attached = true
+ignore_branches = []
+truncation_length = 25
+truncation_symbol = "..."
+always_show_remote = false
+disabled = false
+
+[git_commit]
+format = "([($tag)(@$hash)]($style) )"
+commit_hash_length = 7
+only_detached = true
+tag_symbol = "󰓼 "
+tag_disabled = false
+disabled = false
+
+[git_state]
+format = "([$state( $progress_current/$progress_total)]($style bold) )"
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+disabled = false
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+min_time = 1000
+format = "([󱫑 $duration]($style) )"
+style = "fg:"
+show_milliseconds = false
+
+[package]
+symbol = "󰏗"
+format = "([$symbol( $version)]($style) )"
+
+[nodejs]
+format = "([$symbol($version)]($style) )"
+
+[python]
+style = "bright-yellow"
+symbol = " "
+format = "([$symbol($version)( $virtualenv)]($style) )"
+
+[java]
+symbol = ""
+format = "([$symbol( $version)]($style) )"
+
+[docker_context]
+symbol = ""
+format = "([$symbol( $context)]($style) )"
+
+# Define Dracula color palette
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#4af069"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+
+[palettes.nord]
+dark_blue = "#5E81AC"
+blue = "#81A1C1"
+teal = "#88C0D0"
+red = "#BF616A"
+light_green = "#50fa7b"
+orange = "#D08770"
+green = "#A3BE8C"
+yellow = "#EBCB8B"
+purple = "#B48EAD"
+gray = "#434C5E"
+black = "#2E3440"
+white="#D8DEE9"
+
+[palettes.onedark]
+dark_blue="#61afef"
+blue="#56b6c2"
+red="#e06c75"
+green="#98c379"
+purple="#c678dd"
+cyan="#56b6c2"
+orange="#be5046"
+yellow="#e5c07b"
+gray="#828997"
+white ="#abb2bf"
+black="#2c323c"

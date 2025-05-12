@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# List of players and their respective icons
+declare -A players=(
+    ["spotify"]="󰓇"
+    ["firefox"]="󰈹"
+    ["mpd"]="󰎆"
+    ["chromium"]="󰊯"
+)
+
+# Loop through each player to find if any is playing
+for player in "${!players[@]}"; do
+    player_status=$(playerctl -p "$player" status 2>/dev/null)
+
+    if [[ "$player_status" == "Playing" ]]; then
+        song_info=$(playerctl -p "$player" metadata --format "${players[$player]}   {{title}} - {{artist}}")
+        echo "$song_info"
+        exit 0
+    fi
+done

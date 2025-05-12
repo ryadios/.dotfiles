@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Get list of connected devices
+devices=$(bluetoothctl paired-devices | grep 'Device' | awk '{print $2}')
+
+icon="󰂲"
+
+if bluetoothctl show | grep -q "Powered: yes"; then
+    icon="󰂰"
+    for device in $devices; do
+        if bluetoothctl info "$device" | grep -q "Connected: yes"; then
+            if bluetoothctl info "$device" | grep -q "UUID: Audio Sink"; then
+                icon="󰥰"
+                break
+            else
+                icon="󰂱"
+            fi
+        fi
+    done
+fi
+
+echo "{\"text\": \"$icon\"}"
