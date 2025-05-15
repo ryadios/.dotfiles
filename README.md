@@ -1,4 +1,7 @@
 <p align="center" style="color:grey">
+
+![image](./docs/assets/desktop.png)
+
 <div align="center">
 <table>
 <tbody>
