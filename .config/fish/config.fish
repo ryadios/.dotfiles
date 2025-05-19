@@ -24,6 +24,9 @@ alias ll "eza -lha --icons=auto --sort=name --group-directories-first"
 
 alias y "yazi"
 
+alias .. "cd .."
+alias ... "cd ../.."
+
 # Cleanup orphaned packages
 alias cleanup "sudo pacman -Rns (pacman -Qtdq)"
 
