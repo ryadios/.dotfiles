@@ -6,89 +6,6 @@ local conf_path = vim.fn.stdpath("config") --[[@as string]]
 
 local plugins = {
 
-    -- Colorschemes
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        lazy = true,
-        priority = 1000,
-        enabled = false, -- Disable theme
-        init = function()
-            vim.cmd.colorscheme("catppuccin")
-        end,
-        opts = {
-            transparent_background = true,
-            compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
-            compile = true,
-            flavour = "mocha",
-            integrations = {
-                snacks = true,
-                treesitter = true,
-                mason = true,
-                blink_cmp = true,
-                native_lsp = {
-                    enabled = true,
-                    virtual_text = {
-                        errors = { "italic" },
-                        hints = { "italic" },
-                        warnings = { "italic" },
-                        information = { "italic" },
-                    },
-                    underlines = {
-                        errors = { "undercurl" },
-                        hints = { "undercurl" },
-                        warnings = { "undercurl" },
-                        information = { "undercurl" },
-                    },
-                },
-                mini = {
-                    enabled = true,
-                },
-            },
-        },
-    },
-
-    {
-        "folke/tokyonight.nvim",
-        name = "tokyonight",
-        lazy = true,
-        priority = 1000,
-        -- enabled = false, -- Disable theme
-        init = function()
-            vim.cmd.colorscheme("tokyonight-storm")
-        end,
-        opts = {
-            style = "storm",
-            transparent = true,
-            styles = {
-                comments = { italic = true },
-                keywords = { italic = true },
-                functions = {},
-                variables = {},
-                sidebars = "transparent",
-                floats = "transparent",
-            },
-            on_highlights = function(hl, c)
-                -- Change variable color to yellow
-                hl["@variable"] = { fg = c.yellow }
-                hl["@lsp.type.variable"] = { link = "@variable" }
-                hl["@variable.parameter"] = { fg = c.fg }
-            end,
-            on_colors = function(c)
-                local util = require("tokyonight.util")
-                local function darkenColors(colTable)
-                    for k, v in pairs(colTable) do
-                        if type(v) == "string" and v:sub(1, 1) == "#" then
-                            colTable[k] = util.blend_bg(v, 0.90)
-                        end
-                    end
-                end
-
-                darkenColors(c)
-            end,
-        },
-    },
-
     -- LuaLS setup
     {
         "folke/lazydev.nvim",
@@ -121,29 +38,6 @@ local plugins = {
     },
 
     {
-        "lukas-reineke/indent-blankline.nvim",
-        lazy = false,
-        main = "ibl",
-        opts = {
-            indent = {
-                char = "▏",
-            },
-            scope = {
-                show_start = false,
-                show_end = false,
-                show_exact_scope = false,
-            },
-            exclude = {
-                filetypes = {
-                    "help",
-                    "dashboard",
-                    "NvimTree",
-                },
-            },
-        },
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter-context",
         lazy = false,
     },
@@ -151,7 +45,11 @@ local plugins = {
     {
         "windwp/nvim-ts-autotag",
         event = "InsertEnter",
-        opts = {},
+        opts = {
+            enable_close = true, -- Auto close tags
+            enable_rename = true, -- Auto rename pairs of tags
+            enable_close_on_slash = false, -- Auto close on trailing </
+        },
     },
 
     -- {
@@ -163,6 +61,25 @@ local plugins = {
     --         require("import-cost").setup()
     --     end,
     -- },
+
+    {
+        "m4xshen/hardtime.nvim",
+        lazy = false,
+        dependencies = { "MunifTanjim/nui.nvim" },
+        opts = {},
+    },
+
+    -- {
+    --     "sphamba/smear-cursor.nvim",
+    --     lazy = false,
+    --     opts = {},
+    -- },
+
+    {
+        "karb94/neoscroll.nvim",
+        lazy = false,
+        opts = {},
+    },
 
     { import = "ninja.plugins" },
 

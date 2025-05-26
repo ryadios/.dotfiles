@@ -22,7 +22,7 @@ opts.initial = function()
     opt.cursorlineopt = "number" -- highlight current line number
     opt.ruler = true -- show line and column number
     opt.number = true -- show line number
-    opt.relativenumber = false -- relative line number
+    opt.relativenumber = true -- relative line number
     opt.breakindent = true -- show break indent
     opt.linebreak = true -- wrap long lines at characters in 'breakat'
     opt.swapfile = false -- disable swap file
@@ -60,8 +60,8 @@ opts.final = function()
     opt.softtabstop = 4
 
     -- Statusline
-    local statusline_ascii = ""
-    opt.statusline = "%#Normal#" .. statusline_ascii .. "%="
+    -- local statusline_ascii = ""
+    -- opt.statusline = "%#Normal#" .. statusline_ascii .. "%="
 end
 
 -- Disable shada until plugins are loaded

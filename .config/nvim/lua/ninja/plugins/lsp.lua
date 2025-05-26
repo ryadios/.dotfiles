@@ -35,7 +35,7 @@ return {
                 -- TOOD: Register keybinds
             end
 
-            local severs = {
+            local servers = {
                 lua_ls = {},
                 html = {},
                 cssls = {},
@@ -58,7 +58,7 @@ return {
                 jdtls = {},
             }
 
-            for server, config in pairs(severs) do
+            for server, config in pairs(servers) do
                 lspconfig[server].setup(vim.tbl_deep_extend("force", {
                     on_attach = on_attach,
                     capabilities = capabilities,

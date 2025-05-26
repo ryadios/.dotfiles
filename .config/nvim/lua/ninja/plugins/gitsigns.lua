@@ -29,6 +29,7 @@ return {
                 },
                 preview_config = {
                     relative = "cursor",
+                    border = "single",
                     row = 0,
                     col = 1,
                 },

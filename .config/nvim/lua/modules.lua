@@ -4,55 +4,6 @@
 
 local M = {}
 
-local modes = {
-    {
-        mode = "Relative Number",
-        signcolumn = "auto",
-        bbq = true,
-        gitsigns = true,
-        rnum = true,
-        num = false,
-    },
-    {
-        mode = "Absolute Number",
-        signcolumn = "auto",
-        bbq = true,
-        gitsigns = true,
-        rnum = false,
-        num = true,
-    },
-    {
-        mode = "Zen Mode",
-        signcolumn = "yes:2",
-        bbq = false,
-        gitsigns = false,
-        rnum = false,
-        num = false,
-    },
-}
-local current_index = 1
-
-function M.toggle_mode()
-    local mode = modes[current_index]
-    local current_buf = vim.api.nvim_get_current_buf()
-
-    -- Set options based on the selected mode
-    vim.opt.relativenumber = mode.rnum
-    vim.opt.number = mode.num
-    vim.opt.signcolumn = mode.signcolumn
-
-    -- Toggle barbecue and gitsigns based on mode
-    require("barbecue.ui").toggle(mode.bbq)
-    if mode.gitsigns then
-        require("gitsigns").attach(current_buf)
-    else
-        require("gitsigns").detach(current_buf)
-    end
-
-    -- Cycle through the modes
-    current_index = (current_index % #modes) + 1
-end
-
 --- Toggle inlay hints
 function M.toggle_inlay_hint()
     local is_enabled = vim.lsp.inlay_hint.is_enabled()

@@ -52,8 +52,8 @@ M.general = function()
     map("i", "jj", "<esc>")
     map("i", "<C-c>", "<esc>")
 
-    -- Save only on new changes
-    map("n", "<C-a>", "<cmd>update<CR>")
+    -- Select all
+    map("n", "<C-a>", "gg<S-v>G")
 
     -- Switching splits
     map("n", "<C-h>", "<C-w>h")
@@ -81,13 +81,9 @@ M.general = function()
 end
 
 M.misc = function()
-    map("n", "<leader>tm", function()
-        modules.toggle_mode()
-    end, "[T]oggle [Mode]", icons.setting)
-
-    -- map("n", "<leader>tf", function()
-    --     modules.toggle_flow()
-    -- end, "[T]oggle [F]low", icons.lock)
+    map("n", "<leader>tf", function()
+        modules.toggle_flow()
+    end, "[T]oggle [F]low", icons.lock)
 end
 
 M.oil = function()
@@ -148,6 +144,32 @@ end
 
 M.gitsigns = function()
     -- TODO: Add gitsigns mappings
+    local gitsigns = require("gitsigns")
+
+    map("n", "<leader>hs", gitsigns.stage_hunk, "[H]unk [S]tage", icons.git)
+    map("n", "<leader>hr", gitsigns.reset_hunk, "[H]unk [R]eset", icons.git)
+
+    map("v", "<leader>hs", function()
+        gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+    end, "[H]unk [S]tage Selected", icons.git)
+    map("v", "<leader>hr", function()
+        gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+    end, "[H]unk [R]eset Selected", icons.git)
+
+    map("n", "<leader>hS", gitsigns.stage_buffer, "[S]tage File", icons.git)
+    map("n", "<leader>hR", gitsigns.reset_buffer, "[R]eset File", icons.git)
+    map("n", "<leader>hp", gitsigns.preview_hunk, "[H]unk [P]review", icons.git)
+    map("n", "<leader>hi", gitsigns.preview_hunk_inline, "[H]unk Preview [I]nline", icons.git)
+
+    map("n", "<leader>hb", function()
+        gitsigns.blame_line({ full = true })
+    end, "[B]lame Line", icons.git)
+
+    map("n", "<leader>hd", gitsigns.diffthis, "[D]iff Staged", icons.git)
+
+    map("n", "<leader>hD", function()
+        gitsigns.diffthis("~")
+    end, "[D]iff Head", icons.git)
 end
 
 M.lsp = function()
