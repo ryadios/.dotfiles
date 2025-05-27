@@ -2,8 +2,6 @@
 /* Author: Newman Sanchez (https://github.com/newmanls) */
 
 * {
-    // font:   "SF Pro Display 13";
-
     bg0:    #242424E6;
     bg1:    #7E7E7E80;
     bg2:    #0860f2E6;
@@ -23,7 +21,7 @@
 configuration {
     show-icons: true;
     font:   "SF Pro Display 13";
-    display-drun: "";
+    display-drun: "";
 }
 
 window {
@@ -49,6 +47,7 @@ inputbar {
 
 prompt {
     // padding: 2px 15px 6px 10px;
+    padding: 0px 4px 0px 0px;
 }
 
 entry {
