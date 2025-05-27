@@ -1,0 +1,83 @@
+@import "colors.css";
+
+* {
+    background-image: none;
+}
+
+window {
+    background-color: rgba(12, 12, 12, 0.4);
+    font-family: "SF Pro Display", "Inter", sans-serif;
+}
+
+button {
+    color: @foreground;
+    background-color: #1e1e2e;
+    border: none;
+    border-radius: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 62px;
+    margin: 10px;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: #313244;
+    outline: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    /* transform: scale(1.03); */
+    transition: all 0.15s ease;
+}
+
+#lock {
+    background-image: image(url("icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("icons/reboot.png"));
+}
+
+/* Label styling */
+button label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #f8f8f2;
+    margin-top: 160px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+/* Hover effect for labels */
+/* button:hover label { */
+/*     color: #cba6f7; */
+/* } */
+
+/* Add a subtle glow effect on hover */
+button:hover {
+    box-shadow: 0 8px 20px rgba(203, 166, 247, 0.2);
+}
+
+/* Optional: Add a border on hover for more definition */
+button:hover {
+    border: 2px solid rgba(203, 166, 247, 0.3);
+}
