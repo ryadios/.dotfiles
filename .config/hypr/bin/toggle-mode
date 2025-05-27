@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Read current border_size
+current_border_size=$(hyprctl getoption general:border_size | grep -oP '\d+$')
+
+if [ "$current_border_size" -eq 0 ]; then
+    # Switch to dark mode
+    hyprctl keyword general:gaps_out "2,6,4,6"
+    hyprctl keyword general:border_size 2
+else
+    # Switch to light mode
+    hyprctl keyword general:gaps_out "4,8,6,8"
+    hyprctl keyword general:border_size 0
+fi
