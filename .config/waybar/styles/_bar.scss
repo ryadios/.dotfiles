@@ -5,10 +5,10 @@
 
   >box.horizontal {
     background: rgba(colours.$mocha-crust, 0.9);
-    box-shadow: 0 0 4pt colours.$mocha-crust;
-    border-radius: 10pt;
+    box-shadow: 0 0 2pt colours.$mocha-crust;
+    border-radius: 8pt;
     margin: 3pt;
-    padding: 5pt;
+    padding: 4pt;
   }
 }
 
@@ -97,7 +97,7 @@
 }
 
 #network {
-  color: colours.$mocha-green;
+  color: colours.$mocha-teal;
   margin-right: 10pt;
 }
 
@@ -108,12 +108,12 @@
 }
 
 #bluetooth {
-  color: colours.$mocha-teal;
+  color: colours.$mocha-lavender;
   margin-right: 10pt;
 }
 
 #pulseaudio {
-  color: colours.$mocha-sapphire;
+  color: colours.$mocha-blue;
   margin-right: 10pt;
 }
 

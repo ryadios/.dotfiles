@@ -3,10 +3,10 @@
 }
 #waybar.top > box.horizontal {
   background: rgba(17, 17, 27, 0.9);
-  box-shadow: 0 0 4pt #11111b;
-  border-radius: 10pt;
+  box-shadow: 0 0 2pt #11111b;
+  border-radius: 8pt;
   margin: 3pt;
-  padding: 5pt;
+  padding: 4pt;
 }
 
 #custom-rofi {
@@ -83,7 +83,7 @@
 }
 
 #network {
-  color: #a6e3a1;
+  color: #94e2d5;
   margin-right: 10pt;
 }
 
@@ -94,12 +94,12 @@
 }
 
 #bluetooth {
-  color: #94e2d5;
+  color: #b4befe;
   margin-right: 10pt;
 }
 
 #pulseaudio {
-  color: #74c7ec;
+  color: #89b4fa;
   margin-right: 10pt;
 }
 
