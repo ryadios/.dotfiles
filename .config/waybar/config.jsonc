@@ -68,7 +68,7 @@
         "(.*) - Obsidian(.*)": "󱓧   $1",
         "(.*) - fish": "   $1",
         "(.*) - zsh": "   $1",
-        "(.*) — tmux": "   Terminal - $j:q\n                ",
+        "(.*) — tmux": "   Terminal - $1",
         "yazi: (.*)": "   $1",
         "nwg-look": "   GTK Settings",
         "Qt6 Configuration Tool": "   QT Settings",
