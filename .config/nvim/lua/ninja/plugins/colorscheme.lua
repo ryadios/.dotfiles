@@ -136,9 +136,6 @@ return {
         "rose-pine/neovim",
     },
     {
-        "dylanaraps/wal.vim",
-    },
-    {
         "projekt0n/github-nvim-theme",
     },
     {
