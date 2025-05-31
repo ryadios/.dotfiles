@@ -8,7 +8,7 @@ return {
         name = "gitsigns",
         event = { "BufReadPre", "BufNewFile" },
         keys = function()
-            require("mappings").gitsigns()
+            require("ninja.mappings").gitsigns()
         end,
         config = function()
             require("gitsigns").setup({

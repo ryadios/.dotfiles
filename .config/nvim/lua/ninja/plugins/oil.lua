@@ -9,7 +9,7 @@ return {
         cmd = "Oil",
         lazy = false,
         keys = function()
-            require("mappings").oil()
+            require("ninja.mappings").oil()
         end,
         dependencies = { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
         config = function()

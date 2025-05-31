@@ -14,7 +14,7 @@ return {
         },
         cmd = "Neotree",
         keys = {
-            require("mappings").neotree(),
+            require("ninja.mappings").neotree(),
         },
         opts = {
             close_if_last_window = true,

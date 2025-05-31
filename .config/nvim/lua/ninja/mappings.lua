@@ -2,7 +2,7 @@
 -- │                    Mappings/Keybinds                    │
 -- ╰─────────────────────────────────────────────────────────╯
 
-local modules = require("modules")
+local modules = require("ninja.modules")
 local wk = require("which-key")
 
 local icons = {
@@ -17,6 +17,7 @@ local icons = {
     success = "",
     failure = "",
     view = "󰈈",
+    buffer = "",
 }
 
 local function map(mode, keys, action, desc, icon)
@@ -222,6 +223,12 @@ M.neotree = function()
     map("n", "<leader>ee", "<cmd>Neotree toggle show<CR>", "Neotree Toggle", icons.tree)
     map("n", "<leader>eg", "<cmd>Neotree git_status show<CR>", "Neotree Git Status", icons.tree)
     map("n", "<leader>eb", "<cmd>Neotree buffers<CR> show", "Neotree Buffers", icons.tree)
+end
+
+M.buffer = function()
+    local bm = require("buffer_manager.ui")
+
+    map("n", "<leader>bf", bm.toggle_quick_menu, "[B]uffer [F]ind", icons.buffer)
 end
 
 return M

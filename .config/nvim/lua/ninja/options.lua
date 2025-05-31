@@ -7,7 +7,7 @@ local g = vim.g
 local opts = {}
 
 opts.initial = function()
-    opt.laststatus = 0 -- sets global status line
+    opt.laststatus = 3 -- sets global status line
     opt.clipboard = "unnamedplus" -- sync system & neovim clipboard
     opt.termguicolors = true -- true terminal color support
     opt.list = true
@@ -72,6 +72,23 @@ vim.api.nvim_create_autocmd("User", {
     callback = function()
         vim.o.shada = shada
         pcall(vim.cmd.rshada, { bang = true })
+    end,
+})
+
+vim.api.nvim_create_autocmd({ "UiEnter", "ColorScheme" }, {
+    callback = function()
+        vim.cmd([[
+      hi TabLineFill gui=nocombine
+      hi WinBar gui=nocombine
+    ]])
+        vim.cmd([[
+      hi TabLineFill guibg=none
+      hi WinBar gui=none
+    ]])
+        vim.cmd([[
+      hi! link TabLineFill Normal
+      hi! link WinBar Normal
+    ]])
     end,
 })
 

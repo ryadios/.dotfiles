@@ -9,7 +9,7 @@ return {
         cmd = { "LspInfo", "LspInstall", "LspUninstall" },
         event = { "BufReadPost", "BufNewFile" },
         keys = function()
-            require("mappings").lsp()
+            require("ninja.mappings").lsp()
         end,
         dependencies = { "saghen/blink.cmp" },
         config = function()

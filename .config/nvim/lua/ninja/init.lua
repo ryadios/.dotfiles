@@ -3,6 +3,12 @@
 -- ╰─────────────────────────────────────────────────────────╯
 
 local conf_path = vim.fn.stdpath("config") --[[@as string]]
+-- local custom_theme = require("lualine.themes.auto")
+-- for _, mode in pairs(custom_theme) do
+--     for _, section in pairs(mode) do
+--         section.bg = nil
+--     end
+-- end
 
 local plugins = {
 
@@ -52,6 +58,12 @@ local plugins = {
         },
     },
 
+    {
+        "3rd/image.nvim",
+        lazy = false,
+        opts = {},
+    },
+
     -- {
     --     "barrett-ruth/import-cost.nvim",
     --     build = "sh install.sh npm",
@@ -88,9 +100,9 @@ local plugins = {
         event = "VeryLazy",
         dir = conf_path,
         config = function()
-            require("options").final()
-            require("mappings").general()
-            require("mappings").misc()
+            require("ninja.options").final()
+            require("ninja.mappings").general()
+            require("ninja.mappings").misc()
         end,
     },
 }

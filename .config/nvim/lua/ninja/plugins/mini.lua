@@ -7,7 +7,7 @@ return {
         "echasnovski/mini.nvim",
         name = "mini",
         keys = function()
-            require("mappings").mini()
+            require("ninja.mappings").mini()
         end,
         event = function()
             if vim.fn.argc() == 0 then -- if no args were passed

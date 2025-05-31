@@ -7,7 +7,7 @@
 -- │              @snky_ninja/dotfiles                       │
 -- ╰─────────────────────────────────────────────────────────╯
 
-require("options").initial()
+require("ninja.options").initial()
 
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

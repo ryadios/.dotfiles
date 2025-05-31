@@ -8,7 +8,7 @@ return {
         name = "conform",
         event = { "BufReadPre", "BufNewFile" },
         keys = {
-            require("mappings").conform(),
+            require("ninja.mappings").conform(),
         },
         config = function()
             -- NOTE: Add your .clang-format file path to your shell (.bashrc/.zshrc)

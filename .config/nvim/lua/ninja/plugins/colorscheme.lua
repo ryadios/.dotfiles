@@ -9,13 +9,9 @@ return {
         name = "tokyonight",
         lazy = true,
         priority = 1000,
-        -- enabled = false, -- Disable theme
-        init = function()
-            vim.cmd.colorscheme("tokyonight-night")
-        end,
         opts = {
-            style = "storm",
-            -- transparent = true,
+            style = "night",
+            transparent = true,
             styles = {
                 comments = { italic = true },
                 keywords = { italic = true },
@@ -26,7 +22,7 @@ return {
             },
             on_highlights = function(hl, c)
                 -- Change variable color to yellow
-                hl["@variable"] = { fg = c.yellow }
+                hl["@variable"] = { fg = c.red }
                 hl["@lsp.type.variable"] = { link = "@variable" }
                 hl["@variable.parameter"] = { fg = c.fg }
             end,
@@ -41,6 +37,8 @@ return {
                 end
 
                 darkenColors(c)
+
+                c.bg_statusline = "NONE"
             end,
         },
     },
@@ -57,7 +55,9 @@ return {
     {
         "yorumicolors/yorumi.nvim",
     },
-    { "neanias/everforest-nvim" },
+    {
+        "neanias/everforest-nvim",
+    },
     {
         "catppuccin/nvim",
         config = function()
