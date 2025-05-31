@@ -51,7 +51,6 @@ return {
                     use_languagetree = true,
                 },
                 indent = { enable = true },
-                -- auto_tag = { enable = true },
             })
         end,
     },
