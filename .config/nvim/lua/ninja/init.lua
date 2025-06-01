@@ -3,12 +3,6 @@
 -- ╰─────────────────────────────────────────────────────────╯
 
 local conf_path = vim.fn.stdpath("config") --[[@as string]]
--- local custom_theme = require("lualine.themes.auto")
--- for _, mode in pairs(custom_theme) do
---     for _, section in pairs(mode) do
---         section.bg = nil
---     end
--- end
 
 local plugins = {
 
@@ -92,7 +86,9 @@ local plugins = {
     {
         "karb94/neoscroll.nvim",
         lazy = false,
-        opts = {},
+        opts = {
+            performance_mode = true,
+        },
     },
 
     { import = "ninja.plugins" },

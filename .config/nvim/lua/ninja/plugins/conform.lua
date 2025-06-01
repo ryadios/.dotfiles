@@ -18,16 +18,16 @@ return {
 
             require("conform").setup({
                 formatters_by_ft = {
-                    typescript = { "prettierd", "prettier" },
-                    javascript = { "prettierd", "prettier" },
-                    javascriptreact = { "prettierd", "prettier" },
-                    typescriptreact = { "prettierd", "prettier" },
-                    css = { "prettierd", "prettier" },
-                    html = { "prettierd", "prettier" },
+                    typescript = { "prettierd" },
+                    javascript = { "prettierd" },
+                    javascriptreact = { "prettierd" },
+                    typescriptreact = { "prettierd" },
+                    css = { "prettierd" },
+                    html = { "prettierd" },
                     json = { "fixjson" },
                     jsonc = { "fixjson" },
-                    yaml = { "prettierd", "prettier" },
-                    -- markdown = { "prettierd", "prettier" },
+                    yaml = { "prettierd" },
+                    -- markdown = { "prettierd", },
                     lua = { "stylua" },
                     python = { "isort", "yapf" },
                     c = { "clang-format" },
@@ -37,7 +37,7 @@ return {
                 },
                 format_on_save = {
                     lsp_format = "fallback",
-                    timeout_ms = 500,
+                    timeout_ms = 1000,
                 },
                 formatters = {
                     clang_format = { "--style=file:" .. clang_format_path },
