@@ -104,7 +104,7 @@
 }
 
 #battery {
-  color: #f9e2af;
+  color: #a6e3a1;
   margin-right: 10pt;
 }
 
@@ -150,13 +150,17 @@
 }
 
 #custom-screenshot {
-  margin-right: 11pt;
+  margin-right: 12pt;
   font-size: 10pt;
 }
 
 #custom-wallpaper {
-  margin-right: 16pt;
+  margin-right: 11pt;
   font-size: 12pt;
+}
+
+#power-profiles-daemon {
+  margin-right: 14pt;
 }
 
 #custom-power {

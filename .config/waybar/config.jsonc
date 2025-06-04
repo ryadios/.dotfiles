@@ -194,7 +194,8 @@
         "custom/notifications",
         "custom/color-picker",
         "custom/screenshot",
-        "custom/wallpaper"
+        "custom/wallpaper",
+        "power-profiles-daemon"
       ]
     },
     "custom/mark": {
@@ -249,6 +250,17 @@
       "format": "",
       "tooltip": false,
       "on-click": "wlogout"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
     }
   }
 ]
