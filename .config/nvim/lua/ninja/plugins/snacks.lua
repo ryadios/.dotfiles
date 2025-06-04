@@ -32,20 +32,8 @@ return {
                     winblend = vim.g.winblend,
                 },
             },
-            -- indent = {
-            --     enabled = true,
-            -- }
-            -- dashboard = { -- TODO: Customize Dashboard
-            --     enabled = true,
-            --     preset = {
-            --         header = require("ninja.header").getHeader(3),
-            --     },
-            --     sections = {
-            --         { section = "keys", gap = 1, padding = 1 },
-            --         { section = "startup" },
-            --     },
-            -- },
-            -- statuscolumn = { enabled = true },
+            -- TODO: Check out snacks terminal
+            -- terminal = {},
         },
     },
 }

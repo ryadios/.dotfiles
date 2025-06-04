@@ -79,6 +79,8 @@ M.general = function()
     -- Search and help mappings
     map("v", "??", 'y:h <C-R>"<cr>"') -- Show vim help
     map("v", "?/", 'y:/ <C-R>"<cr>"') -- Search across the buffer
+
+    map("n", "<leader>rn", [[:w<CR>:!g++ %:p -o %:p:r && %:p:r<CR>]], "[R]un [N]ow")
 end
 
 M.misc = function()
@@ -144,7 +146,6 @@ M.mini = function()
 end
 
 M.gitsigns = function()
-    -- TODO: Add gitsigns mappings
     local gitsigns = require("gitsigns")
 
     map("n", "<leader>hs", gitsigns.stage_hunk, "[H]unk [S]tage", icons.git)

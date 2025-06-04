@@ -22,6 +22,8 @@ return {
                 signs = false,
             })
 
+            -- TODO: Make todo comments picker + keybind
+
             -- TODO\: what else?
             -- HACK\: hmm.. this looks funky
             -- BUG\: this need fixing
