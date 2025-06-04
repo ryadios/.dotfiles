@@ -1,7 +1,8 @@
-[manager]
+[mgr]
 show_hidden = true
 scrolloff = 8
 ratio = [1,3,2]
+linemode = "size_and_mtime"
 
 [opener]
 edit = [
