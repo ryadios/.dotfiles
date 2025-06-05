@@ -85,10 +85,14 @@ local plugins = {
 
     {
         "karb94/neoscroll.nvim",
-        lazy = false,
+        event = "VeryLazy",
+        enabled = false,
         opts = {
-            performance_mode = true,
+            -- performance_mode = true,
         },
+        config = function()
+            require("neoscroll").setup({})
+        end,
     },
 
     { import = "ninja.plugins" },
