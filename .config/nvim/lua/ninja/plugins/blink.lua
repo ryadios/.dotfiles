@@ -33,9 +33,9 @@ return {
                 },
             },
             cmdline = {
+                -- keymap = { preset = "inherit" },
                 completion = {
-                    ghost_text = { enabled = true },
-                    menu = { auto_show = true },
+                    -- menu = { auto_show = true },
                 },
             },
             completion = { -- completion options
@@ -72,10 +72,10 @@ return {
                 },
                 documentation = {
                     treesitter_highlighting = true,
-                    auto_show = true,
+                    -- auto_show = true,
                     window = {
                         border = vim.g.border_style,
-                        winblend = 0,
+                        -- winblend = 0,
                         max_width = 50,
                         max_height = 15,
                     },

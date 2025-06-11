@@ -122,7 +122,7 @@ M.mini = function()
 
     map("n", "<leader>dp", function()
         pickers.diagnostic()
-    end, "[D]iagnostics in [Picker]", icons.search)
+    end, "[D]iagnostics [P]icker", icons.search)
 
     map("n", "<leader>gh", function()
         pickers.git_hunks()

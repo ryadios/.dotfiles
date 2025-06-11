@@ -1,3 +1,7 @@
+-- ╭─────────────────────────────────────────────────────────╮
+-- │                      Lualine.nvim                       │
+-- ╰─────────────────────────────────────────────────────────╯
+
 return {
     {
         "nvim-lualine/lualine.nvim",
@@ -150,6 +154,20 @@ return {
                 color = { bg = mode, gui = "bold" },
             }
 
+            local function show_macro_recording()
+                local recording_register = vim.fn.reg_recording()
+                if recording_register == "" then
+                    return ""
+                else
+                    return "Recording @" .. recording_register
+                end
+            end
+
+            local macro_recording = {
+                show_macro_recording,
+                color = { fg = colors.red },
+            }
+
             local diff = {
                 "diff",
                 symbols = { added = " ", modified = "󰝤 ", removed = " " },
@@ -183,6 +201,7 @@ return {
                     end)
                 end,
             }
+
             local mason = {
                 mason_updates() .. "",
                 color = { fg = colors.violet, bg = "None" },
@@ -194,6 +213,7 @@ return {
                     vim.cmd("Mason")
                 end,
             }
+
             local buffers = {
                 get_buffers,
                 icon = nil,
@@ -239,13 +259,32 @@ return {
                 sections = {
                     lualine_a = { mode },
                     lualine_b = { alpha, branch },
-                    lualine_c = { diagnostics, sep },
+                    lualine_c = { diagnostics, macro_recording, sep },
                     lualine_x = { diff, lazy, mason },
                     lualine_y = { buffers, filetype, progress },
                     lualine_z = { location },
                 },
                 tabline = {},
                 extensions = {},
+            })
+
+            vim.api.nvim_create_autocmd("RecordingEnter", {
+                callback = function()
+                    lualine.refresh()
+                end,
+            })
+
+            vim.api.nvim_create_autocmd("RecordingLeave", {
+                callback = function()
+                    local timer = vim.uv.new_timer()
+                    timer:start(
+                        50,
+                        0,
+                        vim.schedule_wrap(function()
+                            lualine.refresh()
+                        end)
+                    )
+                end,
             })
         end,
     },
