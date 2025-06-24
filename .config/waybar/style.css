@@ -1,8 +1,8 @@
 #waybar.top {
-  background: none;
+  background: transparent;
 }
 #waybar.top > box.horizontal {
-  background: rgba(17, 17, 27, 0.9);
+  background: rgba(17, 17, 27, 0.6);
   box-shadow: 0 0 2pt #11111b;
   border-radius: 8pt;
   margin: 3pt;
@@ -62,7 +62,7 @@
 }
 #tray menu {
   background: #1e1e2e;
-  padding: 1pt;
+  padding: 2pt;
 }
 #tray menu * {
   margin: 2pt;

@@ -1,16 +1,19 @@
 @use "colours";
 
 #waybar.top {
-  background: none;
+  // background: none;
+  background: transparent;
 
   >box.horizontal {
-    background: rgba(colours.$mocha-crust, 0.9);
+    background: rgba(colours.$mocha-crust, 0.6);
+    // background: rgba(colours.$mocha-crust, 0.9);
     box-shadow: 0 0 2pt colours.$mocha-crust;
     border-radius: 8pt;
     margin: 3pt;
     padding: 4pt;
   }
 }
+
 
 #custom-rofi {
   margin-left: 7pt;
@@ -72,7 +75,7 @@
 
   menu {
     background: colours.$mocha-base;
-    padding: 1pt;
+    padding: 2pt;
 
     * {
       margin: 2pt;
