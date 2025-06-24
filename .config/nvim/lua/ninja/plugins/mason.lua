@@ -28,17 +28,18 @@ return {
 
             mason_lspconfig.setup({
                 ensure_installed = {
-                    "ts_ls",
+                    "lua_ls",
                     "html",
                     "cssls",
+                    "ts_ls",
                     "tailwindcss",
                     "emmet_ls",
-                    "lua_ls",
                     "pyright",
                     "clangd",
                     "jdtls",
                 },
                 automatic_installation = true,
+                automatic_enable = false,
             })
         end,
     },

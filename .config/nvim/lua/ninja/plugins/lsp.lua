@@ -17,6 +17,7 @@ return {
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+
             capabilities = vim.tbl_deep_extend("force", capabilities, {
                 workspace = {
                     didChangeWatchedFiles = {
@@ -32,7 +33,7 @@ return {
             end
 
             local on_attach = function(_, bufnr)
-                -- TOOD: Register keybinds
+                -- TODO: Register keybinds
             end
 
             local servers = {

@@ -57,6 +57,7 @@ local plugins = {
     {
         "3rd/image.nvim",
         lazy = false,
+        enabled = false,
         opts = {},
     },
 
@@ -77,21 +78,18 @@ local plugins = {
         opts = {},
     },
 
-    -- {
-    --     "sphamba/smear-cursor.nvim",
-    --     lazy = false,
-    --     opts = {},
-    -- },
-
     {
-        "karb94/neoscroll.nvim",
-        event = "VeryLazy",
-        enabled = false,
-        opts = {
-            -- performance_mode = true,
-        },
+        "nvim-tree/nvim-web-devicons",
         config = function()
-            require("neoscroll").setup({})
+            require("nvim-web-devicons").setup({
+                override_by_extension = {
+                    ["css"] = {
+                        icon = "󰌜",
+                        color = "#306AF1",
+                        name = "Css",
+                    },
+                },
+            })
         end,
     },
 
@@ -115,7 +113,7 @@ require("lazy").setup(plugins, {
         lazy = true,
     },
     install = {
-        colorscheme = { "catppuccin" },
+        -- colorscheme = { "catppuccin" },
     },
     dev = {
         path = vim.env.NVIM_DEV,

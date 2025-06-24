@@ -190,7 +190,7 @@ return {
             local lazy = {
                 require("lazy.status").updates,
                 cond = require("lazy.status").has_updates,
-                color = { fg = colors.violet, bg = "None" },
+                color = { fg = colors.violet },
                 on_click = function()
                     vim.ui.select({ "Yes", "No" }, { prompt = "Update plugins?" }, function(choice)
                         if choice == "Yes" then
@@ -204,7 +204,7 @@ return {
 
             local mason = {
                 mason_updates() .. "",
-                color = { fg = colors.violet, bg = "None" },
+                color = { fg = colors.violet },
                 cond = function()
                     return mason_updates() > 0
                 end,
