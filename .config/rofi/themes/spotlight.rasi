@@ -2,7 +2,7 @@
 /* Author: Newman Sanchez (https://github.com/newmanls) */
 
 * {
-    bg0:    #242424E6;
+    bg0:    #24242466;
     bg1:    #7E7E7E80;
     bg2:    #0860f2E6;
 
@@ -29,7 +29,7 @@ window {
 
     location:       center;
     width:          840;
-    border-radius:  10;
+    border-radius:  12;
 }
 
 mainbox {
