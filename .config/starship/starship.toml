@@ -64,7 +64,7 @@ symbol = " "
 
 [cmd_duration]
 min_time = 1000
-format = "([󱫑 $duration]($style) )"
+format = "([󰪢 $duration]($style) )"
 style = "fg:"
 show_milliseconds = false
 
@@ -87,6 +87,9 @@ format = "([$symbol( $version)]($style) )"
 [docker_context]
 symbol = ""
 format = "([$symbol( $context)]($style) )"
+
+[character]
+
 
 # Define Dracula color palette
 [palettes.dracula]
