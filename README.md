@@ -36,7 +36,7 @@ yay -S \
   # Hyprland Packages
   hyprland hyprlock hypridle hyprpicker-git hyprshade xdg-desktop-portal-hyprland \
   # Terminal & Shell Related
-  kitty fish starship aurutils eza \
+  kitty fish starship aurutils eza sesh-bin \
   # Utility Packages
   pipewire dart-sass cliphist grimblast-git jq brightnessctl fastfetch fcitx5 \
   # DE Widgets / UI Tools
@@ -47,7 +47,7 @@ yay -S \
   yazi nautilus
 ```
 
-> [!Note]
+> [!Important]
 > Config uses **[SF Pro Font](https://developer.apple.com/fonts/)** mostly so its recommended to install it<br> 
 > Put the font in `/usr/share/fonts`
 
