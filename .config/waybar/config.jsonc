@@ -69,7 +69,8 @@
         "(.*) - Obsidian(.*)": "󱓧   $1",
         "(.*) - fish": "   $1",
         "(.*) - zsh": "   $1",
-        "(.*) — tmux": "   Terminal - $1",
+        "(.*) — tmux": "    Terminal - $1",
+        "Spotify (.*)": "   Spotify $1",
         "yazi: (.*)": "   $1",
         "nwg-look": "   GTK Settings",
         "Qt6 Configuration Tool": "   QT Settings",
@@ -77,7 +78,7 @@
       }
     },
     "clock": {
-      "format": "   {:%a %e %b %H:%M}",
+      "format": "{:%a %e %b %H:%M}",
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",
