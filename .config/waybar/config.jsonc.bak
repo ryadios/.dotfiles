@@ -3,8 +3,8 @@
     "position": "top",
     "margin-top": 0,
     "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
+    "margin-left": 4,
+    "margin-right": 4,
     "modules-left": [
       "custom/rofi",
       "hyprland/workspaces",
@@ -15,7 +15,6 @@
       "clock"
     ],
     "modules-right": [
-      "memory",
       "tray",
       "backlight",
       "network",
@@ -108,7 +107,7 @@
       "spacing": 10
     },
     "backlight": {
-      "format": "{icon} <b>{percent}%</b>",
+      "format": "{icon}",
       "format-icons": [
         "󰃞",
         "󰃟",
@@ -117,9 +116,9 @@
       "tooltip": false
     },
     "pulseaudio": {
-      "format": "{icon} <b>{volume}%</b>",
-      "format-muted": "󰖁 <b>0%</b>",
-      "format-bluetooth": "{icon} <b>{volume}%</b>",
+      "format": "{icon}",
+      "format-muted": "󰖁",
+      "format-bluetooth": "{icon}",
       "format-bluetooth-muted": "󰝟 ",
       "format-icons": {
         "headphones": "",
@@ -132,7 +131,7 @@
         ]
       },
       "tooltip": true,
-      "on-click": "pgrep -x pavucontrol && pkill -x pavucontrol || pavucontrol &",
+      "on-click": "pavucontrol",
       "ignored-sinks": [
         "JamesDSP Sink",
         "Easy Effects Sink",
@@ -152,7 +151,7 @@
           "󰖪"
         ]
       },
-      "format-wifi": "󰤨   {essid}",
+      "format-wifi": "󰤨",
       "format-ethernet": "󰈀 {ipaddr}/{cidr}",
       "format-disconnected": "󰤭",
       "format-linked": "󰈁",
@@ -168,11 +167,11 @@
       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
       "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-      "on-click": "pgrep -x blueman-manager && pkill -x blueman-manager || blueman-manager &"
+      "on-click": "blueman-manager"
     },
     "battery": {
-      "format": "{icon}   {capacity}%",
-      "format-charging": "  {capacity}%",
+      "format": "{icon}",
+      "format-charging": "",
       "format-icons": [
         "",
         "",

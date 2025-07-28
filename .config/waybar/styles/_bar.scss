@@ -5,12 +5,13 @@
   background: transparent;
 
   >box.horizontal {
-    background: rgba(colours.$mocha-crust, 0.6);
+    background: rgba(#1a1b26, 0.6);
+    // background: rgba(colours.$mocha-crust, 0.6);
     // background: rgba(colours.$mocha-crust, 0.9);
     box-shadow: 0 0 2pt colours.$mocha-crust;
-    border-radius: 8pt;
-    margin: 3pt;
-    padding: 4pt;
+    border-radius: 0pt;
+    margin: 0 0 3px 0;
+    padding: 6pt;
   }
 }
 
