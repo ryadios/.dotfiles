@@ -40,6 +40,7 @@ set -Ux LANG en_US.UTF-8
 set -Ux LC_ALL en_US.UTF-8
 set -Ux CLANG_FORMAT_PATH "$HOME/.clang-format"
 set -Ux STARSHIP_CONFIG "$HOME/.config/starship/starship.toml"
+set -Ux ANI_CLI_PLAYER "mpv"
 
 # Transient Prompt
 function starship_transient_prompt_func
