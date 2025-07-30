@@ -48,9 +48,9 @@
       "tooltip-format": "{player} ({status})\r{artist} - {title}\r\rLeft-Click:   Play / Pause\rMiddle-Click: Previous Track\rRight-Click:  Next Track",
       "title-len": 10,
       "player-icons": {
-        "default": "▶",
-        "mpv": "",
-        "spotify": "󰓇  "
+        "default": "▶ ",
+        "mpv": " ",
+        "spotify": "󰓇 "
       },
       "status-icons": {
         "paused": "",
@@ -61,20 +61,20 @@
       "format": "{title}",
       "separate-outputs": true,
       "rewrite": {
-        "(.*) — Mozilla Firefox": "󰈹   $1",
-        "(.*) — Zen Browser": "󰈹   Zen - $1",
-        "(.*) - Google Chrome": "   $1",
-        "(.*) - Visual Studio Code": "󰨞   $1",
-        "^nvim\\s+(.*)": "   $1",
-        "(.*) - Obsidian(.*)": "󱓧   $1",
+        "(.*) — Mozilla Firefox": "󰈹  $1",
+        "(.*) — Zen Browser": "󰈹  Zen - $1",
+        "(.*) - Google Chrome": "  $1",
+        "(.*) - Visual Studio Code": "󰨞  $1",
+        "^nvim\\s+(.*)": "  $1",
+        "(.*) - Obsidian(.*)": "󱓧  $1",
         "(.*) - fish": "   $1",
         "(.*) - zsh": "   $1",
-        "(.*) — tmux": "    Terminal - $1",
-        "Spotify (.*)": "   Spotify $1",
-        "yazi: (.*)": "   $1",
-        "nwg-look": "   GTK Settings",
-        "Qt6 Configuration Tool": "   QT Settings",
-        "Bluetooth Devices": "   Bluetooth Settings"
+        "(.*) — tmux": "  Terminal - $1",
+        "Spotify (.*)": "  Spotify $1",
+        "yazi: (.*)": "  $1",
+        "nwg-look": "  GTK Settings",
+        "Qt6 Configuration Tool": "  QT Settings",
+        "Bluetooth Devices": "  Bluetooth Settings"
       }
     },
     "clock": {
@@ -99,7 +99,7 @@
     },
     "memory": {
       "interval": 30,
-      "format": "   Mem {used} GiB",
+      "format": "  Mem {used} GiB",
       "max-length": 13,
       "tooltip": false
     },
@@ -152,8 +152,8 @@
           "󰖪"
         ]
       },
-      "format-wifi": "󰤨   {essid}",
-      "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+      "format-wifi": "󰤨  {essid}",
+      "format-ethernet": "󰈀  {ipaddr}/{cidr}",
       "format-disconnected": "󰤭",
       "format-linked": "󰈁",
       "tooltip": false,
@@ -171,7 +171,7 @@
       "on-click": "pgrep -x blueman-manager && pkill -x blueman-manager || blueman-manager &"
     },
     "battery": {
-      "format": "{icon}   {capacity}%",
+      "format": "{icon} {capacity}%",
       "format-charging": "  {capacity}%",
       "format-icons": [
         "",
