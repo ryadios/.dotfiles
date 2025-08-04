@@ -65,6 +65,19 @@ cd ~/.dotfiles
 chmod +x ./install.sh && ./install.sh
 ```
 
+### [Bibata Cursor](https://github.com/ful1e5/Bibata_Cursor)
+
+Copy the cursor assets from `.icons` to `~/.icons/`
+
+```bash
+cp -r ./.icons/Bibata-Modern-Classic/ ~/.icons/
+
+```
+
+> [!Note]
+> This is a patched version of the original font for wayland
+> You can also use the updated font from there [website](https://github.com/ful1e5/bibata)
+
 ### [Zen Browser](https://github.com/zen-browser/desktop)
 
 ```bash
