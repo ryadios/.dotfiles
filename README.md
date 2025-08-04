@@ -75,7 +75,7 @@ cp -r ./.icons/Bibata-Modern-Classic/ ~/.icons/
 ```
 
 > [!Note]
-> This is a patched version of the original font for wayland
+> This is a patched version of the original font for wayland<br>
 > You can also use the updated font from there [website](https://github.com/ful1e5/bibata)
 
 ### [Zen Browser](https://github.com/zen-browser/desktop)
