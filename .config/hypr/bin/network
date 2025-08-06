@@ -1,27 +1,41 @@
-#!/bin/sh
+#!/bin/bash
 
-status="$(nmcli general status | grep -oh "\w*connect\w*")"
+# Check connection state
+state=$(nmcli -t -f STATE general status)
 
-if [[ "$status" == "disconnected" ]]; then
-    printf "󰤮 "
-elif [[ "$status" == "connecting" ]]; then
-    printf "󱍸 "
-elif [[ "$status" == "connected" ]]; then
-    strength="$(nmcli -f IN-USE,SIGNAL device wifi | grep '*' | awk '{print $2}')"
-    strength="$(python $HOME/.config/hypr/bin/wifi-conn-strength)"
-    if [[ "$?" == "0" ]]; then
-        if [[ "$strength" -eq "0" ]]; then
-            printf "󰤯 "
-        elif [[ ("$strength" -ge "0") && ("$strength" -le "25") ]]; then
-            printf "󰤟 "
-        elif [[ ("$strength" -ge "25") && ("$strength" -le "50") ]]; then
-            printf "󰤢 "
-        elif [[ ("$strength" -ge "50") && ("$strength" -le "75") ]]; then
-            printf "󰤥 "
-        elif [[ ("$strength" -ge "75") && ("$strength" -le "100") ]]; then
-            printf "󰤨 "
+case "$state" in
+    "disconnected")
+        printf "󰤮"
+        ;;
+    "connecting")
+        printf "󱍸"
+        ;;
+    "connected (local only)"|"connected (site only)"|"connected")
+        # Check if it's WiFi and get signal strength
+        wifi_info=$(nmcli -t -f IN-USE,SIGNAL dev wifi | grep '^\*')
+
+        if [[ -n "$wifi_info" ]]; then
+            # Extract signal strength
+            strength=$(echo "$wifi_info" | cut -d: -f2)
+
+            if [[ "$strength" =~ ^[0-9]+$ ]]; then
+                if [[ "$strength" -le 25 ]]; then
+                    printf "󰤟"
+                elif [[ "$strength" -le 50 ]]; then
+                    printf "󰤢"
+                elif [[ "$strength" -le 75 ]]; then
+                    printf "󰤥"
+                else
+                    printf "󰤨"
+                fi
+            else
+                printf "󰈀"  # Unknown strength
+            fi
+        else
+            printf "󰈀"  # Not WiFi or no signal info
         fi
-    else
-        printf "󰈀 "
-    fi
-fi
+        ;;
+    *)
+        printf "󰤮"  # Unknown state, assume disconnected
+        ;;
+esac

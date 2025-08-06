@@ -1,20 +1,25 @@
 #!/bin/bash
 
-# List of players and their respective icons
-declare -A players=(
-    ["spotify"]="󰓇"
-    ["firefox"]="󰈹"
-    ["mpd"]="󰎆"
-    ["chromium"]="󰊯"
-)
+active_players=$(playerctl --list-all 2>/dev/null)
+if [[ -z "$active_players" ]]; then
+    echo ""
+    exit 0
+fi
 
-# Loop through each player to find if any is playing
-for player in "${!players[@]}"; do
-    player_status=$(playerctl -p "$player" status 2>/dev/null)
-
-    if [[ "$player_status" == "Playing" ]]; then
-        song_info=$(playerctl -p "$player" metadata --format "${players[$player]}   {{title}} - {{artist}}")
+# Check only active players
+for player in $active_players; do
+    status=$(playerctl -p "$player" status 2>/dev/null)
+    if [[ "$status" == "Playing" ]]; then
+        case "$player" in
+            *spotify*) icon="󰓇" ;;
+            *firefox*) icon="󰈹" ;;
+            *mpd*) icon="󰎆" ;;
+            *chromium*) icon="󰊯" ;;
+            *) icon="󰎆" ;;
+        esac
+        song_info=$(playerctl -p "$player" metadata --format "$icon   {{title}} - {{artist}}" 2>/dev/null)
         echo "$song_info"
         exit 0
     fi
 done
+echo ""
