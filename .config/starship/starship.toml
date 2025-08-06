@@ -7,7 +7,6 @@ $git_commit\
 $git_status\
 $git_state\
 $fill\
-$cmd_duration\
 $package\
 $nodejs\
 $python\
