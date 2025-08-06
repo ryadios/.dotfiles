@@ -100,6 +100,18 @@ return {
                     name = "solarized-osaka",
                     colorscheme = "solarized-osaka",
                 },
+                {
+                    name = "neovim",
+                    colorscheme = "neovim",
+                },
+                {
+                    name = "github-dark",
+                    colorscheme = "github_dark_default",
+                },
+                {
+                    name = "neofusion",
+                    colorscheme = "neofusion",
+                },
             },
         })
     end,

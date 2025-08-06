@@ -54,7 +54,7 @@ M.general = function()
     map("i", "<C-c>", "<esc>")
 
     -- Select all
-    map("n", "<C-a>", "gg<S-v>G")
+    map("n", "<C-g>", "gg<S-v>G")
 
     -- Switching splits
     map("n", "<C-h>", "<C-w>h")
