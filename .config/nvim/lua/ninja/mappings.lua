@@ -66,6 +66,28 @@ M.general = function()
     map("n", "<Tab>", "<cmd>bnext<CR>")
     map("n", "<s-Tab>", "<cmd>bprev<CR>")
 
+    -- Buffer management
+    map("n", "<leader>q", function()
+        local current_buf = vim.api.nvim_get_current_buf()
+        local buffers = vim.tbl_filter(function(buf)
+            return vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted
+        end, vim.api.nvim_list_bufs())
+
+        -- If this is the only buffer left, open Oil before closing
+        if #buffers <= 1 then
+            vim.cmd("Oil")
+            -- Close the buffer after Oil opens
+            vim.schedule(function()
+                if vim.api.nvim_buf_is_valid(current_buf) then
+                    vim.api.nvim_buf_delete(current_buf, { force = false })
+                end
+            end)
+        else
+            -- Normal buffer deletion when other buffers exist
+            vim.cmd("bdelete")
+        end
+    end, "[Q]uit Buffer", icons.buffer)
+
     -- Resize splits
     map("n", "<A-k>", ":resize +2<CR>")
     map("n", "<A-j>", ":resize -2<CR>")
@@ -224,12 +246,6 @@ M.neotree = function()
     map("n", "<leader>ee", "<cmd>Neotree toggle show<CR>", "Neotree Toggle", icons.tree)
     map("n", "<leader>eg", "<cmd>Neotree git_status show<CR>", "Neotree Git Status", icons.tree)
     map("n", "<leader>eb", "<cmd>Neotree buffers<CR> show", "Neotree Buffers", icons.tree)
-end
-
-M.buffer = function()
-    local bm = require("buffer_manager.ui")
-
-    map("n", "<leader>bf", bm.toggle_quick_menu, "[B]uffer [F]ind", icons.buffer)
 end
 
 return M
