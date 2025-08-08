@@ -72,6 +72,7 @@
         "(.*) — tmux": "  Terminal - $1",
         "Spotify (.*)": "  Spotify $1",
         "yazi: (.*)": "  $1",
+        "^\\(\\d+\\) Discord \\| (.*)": "  Discord | $1",
         "nwg-look": "  GTK Settings",
         "Qt6 Configuration Tool": "  QT Settings",
         "Bluetooth Devices": "  Bluetooth Settings"
