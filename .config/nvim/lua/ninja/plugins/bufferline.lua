@@ -13,7 +13,16 @@ return {
 
             bufferline.setup({
                 highlights = {
-                    fill = { bg = "NONE" },
+                    -- fill = { bg = "NONE" },
+                    fill = {
+                        bg = "NONE",
+                        fg = "NONE",
+                    },
+                    background = { bg = "NONE" },
+                    tab = { bg = "NONE" },
+                    tab_selected = { bg = "NONE" },
+                    tab_separator = { bg = "NONE" },
+                    tab_separator_selected = { bg = "NONE" },
                 },
                 options = {
                     indicator_icon = " ",
