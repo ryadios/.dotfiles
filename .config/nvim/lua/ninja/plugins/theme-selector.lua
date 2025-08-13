@@ -101,10 +101,6 @@ return {
                     colorscheme = "solarized-osaka",
                 },
                 {
-                    name = "neovim",
-                    colorscheme = "neovim",
-                },
-                {
                     name = "github-dark",
                     colorscheme = "github_dark_default",
                 },

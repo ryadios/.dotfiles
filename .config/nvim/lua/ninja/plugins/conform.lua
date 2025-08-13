@@ -58,6 +58,9 @@ return {
                         -- "prettier.config.mjs",
                         -- }),
                     },
+                    ["google-java-format"] = {
+                        args = { "--aosp", "-" }, -- AOSP style uses 4 spaces instead of 2
+                    },
                 },
             })
         end,
