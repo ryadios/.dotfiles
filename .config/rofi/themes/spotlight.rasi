@@ -27,9 +27,17 @@ configuration {
 window {
     background-color:   @bg0;
 
-    location:       center;
-    width:          840;
+    location:       southeast;
+    anchor:         southeast;
+    x-offset: -20px;
+    y-offset: -20px;
+
+    width:          440px;
+
     border-radius:  12;
+
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
 mainbox {

@@ -8,50 +8,96 @@ configuration {
     background-color: transparent;
 }
 
+window {
+    location: southeast;
+    anchor: southeast;
+    x-offset: -20px;
+    y-offset: -20px;
+    width: 280px;
+    height: 320px;
+}
+
 mainbox {
     padding: 0.5em;
+    border-radius: 12px;
+    background-color: @background;
     children: [inputbar, listview];
+    width: 280px;
+    height: 320px;
 }
 
 inputbar {
     text-color: @foreground;
+    margin: 0 0 15 0;
+    padding: 0.4em 0.6em;
+    border-radius: 6px;
+    background-color: @background-alt;
+    children: [entry];
 }
 
 prompt {
-    padding: 3px 10px 6px 10px;
-    background-color: inherit;
-    text-color: @foreground;
+    padding: 0 0.3em 0 0;
+    background-color: transparent;
+    text-color: @accent;
+    font: "SF Pro Display Medium 12";
 }
 
 entry {
-    placeholder: "ara ara ~";
+    placeholder: "Search";
+    placeholder-color: @foreground-alt;
+    text-color: @foreground;
+    background-color: transparent;
+    cursor-color: @accent;
+    font: "SF Pro Display 12";
 }
 
 textbox {
-  vertical-align:   0.5;
-  horizontal-align: 0.5;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
 }
 
 listview {
-    columns:       8;
-    lines:         6;
-    spacing: 20px;
-    cycle:         true;
-    dynamic:       true;
-    layout:        vertical;
-    flow:          horizontal;
-    reverse:       false;
-    fixed-height:  true;
+    columns: 3;
+    lines: 6;
+    spacing: 3px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+    flow: horizontal;
+    reverse: false;
+    fixed-height: true;
     fixed-columns: true;
+    scrollbar: true;
+    scrollbar-width: 3px;
+    border: none;
 }
 
 element {
-  orientation: vertical;
+    orientation: vertical;
+    padding: 0.3em;
+    border-radius: 4px;
+    background-color: transparent;
+    text-color: @foreground;
 }
 
+element selected {
+    background-color: @accent;
+    text-color: @background;
+    border-radius: 6px;
+}
 
 element-text {
-  vertical-align:   0.5;
-  horizontal-align: 0.5;
-  font:            "SF Pro Display 24";
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    font: "SF Pro Display 16";
+    background-color: transparent;
+    text-color: inherit;
+}
+
+scrollbar {
+    width: 3px;
+    border: 0;
+    handle-color: @accent;
+    handle-width: 3px;
+    padding: 0;
 }
