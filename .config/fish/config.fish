@@ -42,6 +42,10 @@ set -Ux CLANG_FORMAT_PATH "$HOME/.clang-format"
 set -Ux STARSHIP_CONFIG "$HOME/.config/starship/starship.toml"
 set -Ux ANI_CLI_PLAYER "mpv"
 
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
 # Transient Prompt
 function starship_transient_prompt_func
     tput cuu1 # Moves up one line
@@ -84,3 +88,4 @@ bind \ck sesh-sessions
 starship init fish | source
 
 enable_transience
+
