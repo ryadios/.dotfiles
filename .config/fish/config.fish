@@ -85,7 +85,10 @@ end
 
 bind \ck sesh-sessions
 
+bind \cg 'gitui; commandline -f repaint'
+
 starship init fish | source
 
 enable_transience
 
+kotofetch
