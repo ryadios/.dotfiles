@@ -4,7 +4,7 @@ SETUVAR --export ANI_CLI_PLAYER:mpv
 SETUVAR --export --path CLANG_FORMAT_PATH:/home/aditya/\x2eclang\x2dformat
 SETUVAR --export LANG:en_US\x2eUTF\x2d8
 SETUVAR --export LC_ALL:en_US\x2eUTF\x2d8
-SETUVAR --export STARSHIP_CONFIG:/home/aditya/\x2econfig/starship/starship\x2etoml
+SETUVAR --export STARSHIP_CONFIG:/home/aditya/\x2econfig/starship\x2etoml
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/themes/Catppuccin\x20Frappe\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Latte\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Macchiato\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Mocha\x2etheme
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
