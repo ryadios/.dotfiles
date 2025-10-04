@@ -54,7 +54,7 @@ yay -S \
 ##### Optional
 
 ```bash 
-yay -S batsignal dua-cli gnome-calendar rofimoji udiskie vimiv zathura gitui
+yay -S batsignal mpv dua-cli gnome-calendar rofimoji udiskie vimiv zathura gitui
 ```
 
 ### Setup
@@ -81,24 +81,14 @@ cp -r ./.icons/Bibata-Modern-Classic/ ~/.icons/
 ### [Zen Browser](https://github.com/zen-browser/desktop)
 
 ```bash
-flatpak install flathub app.zen_browser.zen
+yay -S zen-browser-bin
 ```
-
-#### Mods
-
-- [Floating Status Bar](https://github.com/AmirhBeigi/zen-floating-statusbar/)
-- [SuperPins](https://github.com/CosmoCreeper/Zen-Themes/tree/main/SuperPins)
-- [Nebula Theme](https://github.com/JustAdumbPrsn/Zen-Nebula)
 
 #### Extensions
 
 - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 - [Refined Github](https://addons.mozilla.org/en-US/firefox/addon/refined-github-/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 - [Material Icons for Github](https://addons.mozilla.org/en-US/firefox/addon/material-icons-for-github/)
-- [Bonjourr Startpage](https://addons.mozilla.org/en-US/firefox/addon/bonjourr-startpage/)
-- [Pinterest Save Button](https://addons.mozilla.org/en-US/firefox/addon/pinterest/)
-- [Pinterest Dark Mode](https://addons.mozilla.org/en-US/firefox/addon/pinterest-dark-theme/)
-- [Keepa Amazon Tracker](https://addons.mozilla.org/en-US/firefox/addon/keepa/)
 
 
 ### Previews
