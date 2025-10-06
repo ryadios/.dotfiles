@@ -214,11 +214,9 @@
     "custom/updates": {
       "exec": "~/.config/waybar/bin/update",
       "return-type": "json",
-      "format": "{}",
+      "format": "{text}",
       "on-click": "~/.config/waybar/bin/update up",
-      "interval": 30,
-      "min-length": 1,
-      "max-length": 1
+      "interval": 30
     },
     "idle_inhibitor": {
       "format": "{icon}",

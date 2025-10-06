@@ -2,9 +2,7 @@
   background: transparent;
 }
 #waybar.top > box.horizontal {
-  box-shadow: 0 0 2pt #11111b;
-  border-radius: 0pt;
-  margin: 0 0 0px 0;
+  background: rgba(0, 0, 0, 0.4);
   padding: 6pt;
 }
 
@@ -39,7 +37,7 @@
 }
 
 #mpris {
-  background: #1e1e2e;
+  background: rgba(30, 30, 46, 0.5);
   color: #a6e3a1;
   border-radius: 12pt;
   margin-left: 15pt;

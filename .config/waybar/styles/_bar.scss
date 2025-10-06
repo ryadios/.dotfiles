@@ -1,17 +1,12 @@
 @use "colors";
 
 #waybar.top {
-    // background: none;
     background: transparent;
 
     > box.horizontal {
-        // background: rgba(#1a1b26, 0.6);
-        // background: rgba(colors.$mocha-crust, 0.6);
-        // background: rgba(colors.$mocha-crust, 0.9);
-        box-shadow: 0 0 2pt colors.$mocha-crust;
-        border-radius: 0pt;
-        margin: 0 0 0px 0;
+        background: rgba(0, 0, 0, 0.4);
         padding: 6pt;
+        // box-shadow: 0 4pt 20pt rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -53,7 +48,7 @@
 }
 
 #mpris {
-    background: colors.$mocha-base;
+    background: rgba(colors.$mocha-base, 0.5);
     color: colors.$mocha-green;
     border-radius: 12pt;
     margin-left: 15pt;
