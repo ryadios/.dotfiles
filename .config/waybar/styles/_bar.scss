@@ -1,181 +1,176 @@
 @use "colors";
 
 #waybar.top {
-    background: transparent;
+  background: transparent;
 
-    > box.horizontal {
-        background: rgba(0, 0, 0, 0.4);
-        padding: 6pt;
-        // box-shadow: 0 4pt 20pt rgba(0, 0, 0, 0.5);
-    }
+  >box.horizontal {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6pt;
+    // box-shadow: 0 4pt 20pt rgba(0, 0, 0, 0.5);
+  }
 }
 
 #custom-rofi {
-    margin-left: 7pt;
-    padding-right: 3pt;
-    font-size: 12pt;
+  margin-left: 7pt;
+  padding-right: 3pt;
+  font-size: 12pt;
 }
 
 #workspaces {
-    margin-left: 12pt;
+  margin-left: 12pt;
 
-    button {
-        color: colors.$mocha-surface2;
+  button {
+    color: colors.$mocha-surface2;
 
-        &:not(:first-child) {
-            margin-left: 2pt;
-        }
-
-        &.visible {
-            color: colors.$mocha-blue;
-        }
-
-        &.active {
-            color: colors.$mocha-red;
-        }
-
-        &:hover,
-        &:focus {
-            background: none;
-            border-color: transparent;
-            box-shadow: none;
-
-            &:not(.active):not(.visible) {
-                color: colors.$mocha-overlay2;
-            }
-        }
+    &:not(:first-child) {
+      margin-left: 2pt;
     }
+
+    &.visible {
+      color: colors.$mocha-blue;
+    }
+
+    &.active {
+      color: colors.$mocha-red;
+    }
+
+    &:hover,
+    &:focus {
+      background: none;
+      border-color: transparent;
+      box-shadow: none;
+
+      &:not(.active):not(.visible) {
+        color: colors.$mocha-overlay2;
+      }
+    }
+  }
 }
 
 #mpris {
-    background: rgba(colors.$mocha-base, 0.5);
-    color: colors.$mocha-green;
-    border-radius: 12pt;
-    margin-left: 15pt;
-    padding: 2pt 8pt;
-}
-
-#window {
-    margin-left: 15pt;
-    margin-right: 20pt;
+  background: rgba(colors.$mocha-base, 0.5);
+  color: colors.$mocha-green;
+  border-radius: 12pt;
+  margin-left: 15pt;
+  padding: 2pt 8pt;
 }
 
 #memory {
-    color: colors.$mocha-peach;
-    margin-right: 12pt;
+  color: colors.$mocha-peach;
+  margin-right: 12pt;
 }
 
 #tray {
-    margin-right: 10pt;
+  margin-right: 10pt;
 
-    menu {
-        background: colors.$mocha-base;
-        padding: 2pt;
+  menu {
+    background: colors.$mocha-base;
+    padding: 2pt;
 
-        * {
-            margin: 2pt;
-        }
-
-        check {
-            margin-right: 4pt;
-        }
+    * {
+      margin: 2pt;
     }
+
+    check {
+      margin-right: 4pt;
+    }
+  }
 }
 
 @keyframes blink {
-    to {
-        background-color: rgba(30, 34, 42, 0.5);
-        color: colors.$mocha-text;
-    }
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: colors.$mocha-text;
+  }
 }
 
 #backlight {
-    color: colors.$mocha-mauve;
-    margin-right: 10pt;
+  color: colors.$mocha-mauve;
+  margin-right: 10pt;
 }
 
 #network {
-    color: colors.$mocha-teal;
-    margin-right: 10pt;
+  color: colors.$mocha-teal;
+  margin-right: 10pt;
 }
 
 #network.disabled,
 #network.disconnected {
-    color: colors.$mocha-red;
-    margin-right: 10pt;
+  color: colors.$mocha-red;
+  margin-right: 10pt;
 }
 
 #bluetooth {
-    color: colors.$mocha-lavender;
-    margin-right: 10pt;
+  color: colors.$mocha-lavender;
+  margin-right: 10pt;
 }
 
 #pulseaudio {
-    color: colors.$mocha-blue;
-    margin-right: 10pt;
+  color: colors.$mocha-blue;
+  margin-right: 10pt;
 }
 
 #battery {
-    color: colors.$mocha-green;
-    margin-right: 10pt;
+  color: colors.$mocha-green;
+  margin-right: 10pt;
 }
 
 #battery.full,
 #battery.good,
 #battery.charging,
 #battery.plugged {
-    color: colors.$mocha-green;
+  color: colors.$mocha-green;
 }
 
 #battery.critical:not(.charging) {
-    color: colors.$mocha-red;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: colors.$mocha-red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #custom-mark {
-    margin-right: 10pt;
-    font-size: 10pt;
+  margin-right: 10pt;
+  font-size: 10pt;
 }
 
 #custom-notifications {
-    margin-right: 10pt;
-    font-size: 10pt;
+  margin-right: 10pt;
+  font-size: 10pt;
 }
 
 #idle_inhibitor {
-    margin-right: 10pt;
-    font-size: 15pt;
+  margin-right: 10pt;
+  font-size: 15pt;
 }
 
 #custom-updates {
-    margin-right: 10pt;
-    font-size: 10pt;
+  margin-right: 10pt;
+  font-size: 10pt;
 }
 
 #custom-color-picker {
-    margin-right: 10pt;
-    font-size: 9pt;
+  margin-right: 10pt;
+  font-size: 9pt;
 }
 
 #custom-screenshot {
-    margin-right: 10pt;
-    font-size: 10pt;
+  margin-right: 10pt;
+  font-size: 10pt;
 }
 
 #custom-wallpaper {
-    margin-right: 10pt;
-    font-size: 12pt;
+  margin-right: 10pt;
+  font-size: 12pt;
 }
 
 #power-profiles-daemon {
-    margin-right: 12pt;
+  margin-right: 12pt;
 }
 
 #custom-power {
-    margin-right: 11pt;
-    font-size: 10pt;
+  margin-right: 11pt;
+  font-size: 10pt;
 }

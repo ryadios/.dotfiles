@@ -8,8 +8,7 @@
     "modules-left": [
       "custom/rofi",
       "hyprland/workspaces",
-      "mpris",
-      "hyprland/window"
+      "mpris"
     ],
     "modules-center": [
       "clock"
@@ -22,8 +21,7 @@
       "bluetooth",
       "pulseaudio",
       "battery",
-      "group/utils",
-      "custom/power"
+      "group/utils"
     ],
     "custom/rofi": {
       "format": "󰣇",
@@ -46,7 +44,7 @@
       "format": "{player_icon} {artist} - {title}",
       "format-paused": "{status_icon}  {artist} - {title}",
       "tooltip-format": "{player} ({status})\r{artist} - {title}\r\rLeft-Click:   Play / Pause\rMiddle-Click: Previous Track\rRight-Click:  Next Track",
-      "title-len": 10,
+      "title-len": 25,
       "player-icons": {
         "default": "▶ ",
         "mpv": " ",
@@ -55,27 +53,6 @@
       "status-icons": {
         "paused": "",
         "stopped": ""
-      }
-    },
-    "hyprland/window": {
-      "format": "{title}",
-      "separate-outputs": true,
-      "rewrite": {
-        "(.*) — Mozilla Firefox": "󰈹  $1",
-        "(.*) — Zen Browser": "󰈹  Zen - $1",
-        "(.*) - Google Chrome": "  $1",
-        "(.*) - Visual Studio Code": "󰨞  $1",
-        "^nvim\\s+(.*)": "  $1",
-        "(.*) - Obsidian(.*)": "󱓧  $1",
-        "(.*) - fish": "   $1",
-        "(.*) - zsh": "   $1",
-        "(.*) — tmux": "  Terminal - $1",
-        "Spotify (.*)": "  Spotify $1",
-        "yazi: (.*)": "  $1",
-        "^\\(\\d+\\) Discord \\| (.*)": "  Discord | $1",
-        "nwg-look": "  GTK Settings",
-        "Qt6 Configuration Tool": "  QT Settings",
-        "Bluetooth Devices": "  Bluetooth Settings"
       }
     },
     "clock": {
@@ -100,7 +77,7 @@
     },
     "memory": {
       "interval": 30,
-      "format": "  Mem {used} GiB",
+      "format": "  {used} GiB",
       "max-length": 13,
       "tooltip": false
     },
@@ -252,11 +229,6 @@
       "on-click": "waypaper --random",
       "on-click-right": "waypaper",
       "tooltip-format": "Left-click:  Change Wallpaper\nRight-click: Open Wallpaper Picker"
-    },
-    "custom/power": {
-      "format": "",
-      "tooltip": false,
-      "on-click": "wlogout"
     },
     "power-profiles-daemon": {
       "format": "{icon}",
