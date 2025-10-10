@@ -24,7 +24,7 @@
       "group/utils"
     ],
     "custom/rofi": {
-      "format": "󰣇",
+      "format": "",
       "on-click": "rofi -show drun",
       "on-click-middle": "pkill -9 rofi",
       "tooltip-format": "{}",

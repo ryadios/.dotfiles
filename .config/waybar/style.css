@@ -2,7 +2,7 @@
   background: transparent;
 }
 #waybar.top > box.horizontal {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   padding: 6pt;
 }
 
