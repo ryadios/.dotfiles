@@ -5,18 +5,17 @@
 // Press META + SHIFT + R to update the styles.
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
-    font-size: 10pt;
-    font-weight: 800;
-    transition-property: background;
-    transition-duration: 0.5s;
+  margin: 0;
+  padding: 0;
+  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+  font-size: 10pt;
+  font-weight: 800;
+  transition-property: background;
+  transition-duration: 0.5s;
 }
 
 tooltip {
-    background: colors.$mocha-crust;
-    color: colors.$mocha-text;
-    border-radius: 5pt;
-    padding: 100pt;
+  background: colors.$mocha-crust;
+  color: colors.$mocha-text;
+  border-radius: 5pt;
 }
