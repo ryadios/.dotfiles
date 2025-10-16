@@ -150,7 +150,7 @@
       "on-click": "pgrep -x blueman-manager && pkill -x blueman-manager || blueman-manager &"
     },
     "battery": {
-      "format": "{icon} {capacity}%",
+      "format": "{icon}  {capacity}%",
       "format-charging": "  {capacity}%",
       "format-icons": [
         "",
