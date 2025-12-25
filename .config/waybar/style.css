@@ -9,11 +9,11 @@
 #custom-rofi {
   margin-left: 7pt;
   padding-right: 3pt;
-  font-size: 12pt;
+  font-size: 11pt;
 }
 
 #workspaces {
-  margin-left: 12pt;
+  margin-left: 10pt;
 }
 #workspaces button {
   color: #585b70;
