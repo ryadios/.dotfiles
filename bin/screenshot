@@ -2,7 +2,7 @@
 
 TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
 DIR=~/Pictures/Screenshots
-FILE="$DIR/ss-$TIMESTAMP.png"
+FILE="$DIR/Screenshot-$TIMESTAMP.png"
 
 if [[ "$1" == "area" ]]; then
     grim -g "$(slurp)" "$FILE"
@@ -11,4 +11,3 @@ else
 fi
 
 wl-copy < "$FILE"
-notify-send -u low -i "$FILE" "Screenshot Captured"
