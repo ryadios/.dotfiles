@@ -1,0 +1,142 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+        "context": "VimControl && !menu",
+        "bindings": {
+            // Put key bindings here if you want them to work in normal & visual mode.
+
+            // Line movement
+            "shift-k": "editor::MoveLineUp",
+            "shift-j": "editor::MoveLineDown"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            // Terminal toggle
+            "ctrl-`": "workspace::ToggleBottomDock",
+            "space r n": ["task::Spawn", { "task_name": "Code Runner" }]
+        }
+    },
+    {
+        "context": "vim_mode == normal && !menu",
+        "bindings": {
+            // Select all
+            "ctrl-g": "editor::SelectAll",
+
+            // Switching splits (pane navigation)
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-l": "workspace::ActivatePaneRight",
+
+            // Buffer navigation
+            "tab": "pane::ActivateNextItem",
+            "shift-tab": "pane::ActivatePreviousItem",
+
+            // Buffer management (quit buffer)
+            "space q": "pane::CloseActiveItem",
+
+            // Resize splits
+            "alt-k": "vim::ResizePaneUp",
+            "alt-j": "vim::ResizePaneDown",
+            "alt-h": "vim::ResizePaneLeft",
+            "alt-l": "vim::ResizePaneRight",
+
+            // Center cursor on scroll
+            "ctrl-d": ["workspace::SendKeystrokes", "ctrl-d z z"],
+            "ctrl-u": ["workspace::SendKeystrokes", "ctrl-u z z"],
+
+            // Diagnostic mappings
+            "d p": "editor::GoToPreviousDiagnostic",
+            "d n": "editor::GoToDiagnostic",
+            "space d f": "diagnostics::Deploy",
+
+            // LSP Hover
+            "space k": "editor::Hover",
+
+            // LSP mappings
+            "space l d": "editor::GoToDefinition",
+            "space l v": "editor::GoToDefinitionSplit",
+            "space l i": "editor::GoToImplementation",
+            "space l t": "editor::GoToTypeDefinition",
+            "space l r": "editor::FindAllReferences",
+            "space l a": "editor::ToggleCodeActions",
+            "space l c": "editor::Rename",
+            "space l l": "diagnostics::Deploy",
+
+            // Find mappings
+            "space f f": "file_finder::Toggle",
+            "space f g": "pane::DeploySearch",
+
+            // Other mappings
+            "space o": "tab_switcher::Toggle",
+            "space e e": "project_panel::ToggleFocus",
+            "space p": "outline::Toggle",
+
+            // Git keybinds
+            "space h p": "editor::ToggleSelectedDiffHunks",
+            "space h s": "git::ToggleStaged",
+            "space h r": "git::Restore",
+            "space h n": "editor::GoToHunk",
+            "space h N": "editor::GoToPreviousHunk",
+            "space g s": "git::StageFile",
+            "space g u": "git::UnstageFile",
+            "space g r": "git::RestoreFile",
+            "space g c": "git::Commit",
+            // "space g l": "git::Blame",
+            "space g d": "git::Diff"
+        }
+    },
+    {
+        "context": "vim_mode == insert",
+        "bindings": {
+            // Insert movement (arrow key navigation in insert mode)
+            "ctrl-h": "editor::MoveLeft",
+            "ctrl-j": "editor::MoveDown",
+            "ctrl-k": "editor::MoveUp",
+            "ctrl-l": "editor::MoveRight",
+
+            // Insert escape
+            "j j": "vim::NormalBefore",
+
+            // Other insert mode mappings
+            "ctrl-x ctrl-o": "editor::ShowCompletions",
+            "ctrl-x ctrl-a": "assistant::InlineAssist",
+            "ctrl-x ctrl-c": "editor::ShowEditPrediction"
+        }
+    },
+    {
+        "context": "vim_mode == visual",
+        "bindings": {}
+    },
+    {
+        "context": "EmptyPane || SharedScreen",
+        "bindings": {
+            // Put key bindings here (in addition to the context above) if you want them to
+            // work when no editor exists.
+        }
+    },
+    {
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "enter": "project_panel::Open",
+            "space e e": "workspace::ActivatePaneLeft",
+
+            "o": "project_panel::NewFile"
+        }
+    },
+    {
+        "context": "Editor && (vim_mode == normal || vim_mode == insert) && !VimWaiting && !menu",
+        "bindings": {
+            "space m p": "markdown::OpenPreview",
+            "space m P": "markdown::OpenPreviewToTheSide"
+        }
+    }
+]

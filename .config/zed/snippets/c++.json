@@ -1,0 +1,19 @@
+{
+    "boilerplate": {
+        "prefix": "cpp",
+        "description": "C++ basic boilerplate",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "",
+            "int main(${1:int argc, char** argv}) {",
+            "    ios::sync_with_stdio(false);",
+            "    cin.tie(nullptr);",
+            "",
+            "    $0",
+            "",
+            "    return 0;",
+            "}"
+        ]
+    }
+}

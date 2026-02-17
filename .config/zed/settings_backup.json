@@ -1,0 +1,65 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "agent": {
+        "play_sound_when_agent_done": true,
+        "default_model": {
+            "provider": "copilot_chat",
+            "model": "gpt-4.1"
+        }
+    },
+    "show_edit_predictions": false,
+    "theme": "Cursor Dark",
+    "project_panel": {
+        "dock": "right",
+        "default_width": 280,
+        "auto_reveal_entries": false
+    },
+    "toolbar": {
+        "quick_actions": false,
+        "selections_menu": false
+    },
+    "features": {
+        "edit_prediction_provider": "copilot"
+    },
+    "vim_mode": true,
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "base_keymap": "VSCode",
+    "relative_line_numbers": true,
+    "cursor_blink": true,
+    "tab_size": 4,
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "indent_guides": {
+        "enabled": true,
+        "coloring": "indent_aware"
+    },
+    "languages": {
+        "SCSS": {
+            "language_servers": ["scss-lsp"]
+        },
+        "C++": {
+            "format_on_save": "on",
+            "language_servers": ["clangd"]
+        }
+    },
+    "file_scan_exclusions": [
+        "**/.git",
+        "**/node_modules",
+        "**/target",
+        "**/.next",
+        "**/.nuxt",
+        "**/dist",
+        "**/build"
+    ]
+}

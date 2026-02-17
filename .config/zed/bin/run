@@ -1,0 +1,83 @@
+#!/bin/bash
+
+BLUE='\033[1;34m'
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+NC='\033[0m' # No Color
+
+# Ensure ZED_FILE is set
+if [ -z "$ZED_FILE" ]; then
+    echo -e "${RED}Error: ZED_FILE environment variable is not set.${NC}"
+    exit 1
+fi
+
+full_path="$ZED_FILE"
+dir_path=$(dirname "$full_path")
+filename_ext=$(basename "$full_path")
+filename="${filename_ext%.*}"
+extension="${filename_ext##*.}"
+
+current_time=$(date +'%H:%M:%S')
+echo -e "${BLUE}----------- [RUNNING: $filename_ext at $current_time] -----------${NC}\n"
+
+# Change to the file's directory for simpler command execution
+cd "$dir_path" || exit
+
+start_time=$(date +%s.%N)
+exit_code=0
+
+case "$extension" in
+    "cpp")
+        g++ -std=c++17 "$filename_ext" -o "$filename.out"
+        compile_status=$?
+
+        if [ $compile_status -eq 0 ]; then
+            ./"$filename.out"
+            exit_code=$?
+            rm "$filename.out"
+        else
+            exit_code=$compile_status
+        fi
+        ;;
+
+    "py")
+        project_root=$(git rev-parse --show-toplevel 2>/dev/null)
+        if [ -n "$project_root" ] && [ -f "$project_root/.venv/bin/activate" ]; then
+            source "$project_root/.venv/bin/activate"
+        fi
+
+        exit_code=$?
+        ;;
+
+    "java")
+        javac "$filename_ext"
+        compile_status=$?
+
+        if [ $compile_status -eq 0 ]; then
+            java "$filename"
+            exit_code=$?
+            rm "$filename.class"
+        else
+            exit_code=$compile_status
+        fi
+        ;;
+
+    *)
+        echo -e "${RED}Unsupported file type: .$extension${NC}"
+        exit_code=1
+        ;;
+esac
+
+end_time=$(date +%s.%N)
+duration=$(echo "$end_time - $start_time" | bc)
+formatted_duration=$(printf "%.2f" "$duration")
+
+echo
+
+if [ $exit_code -eq 0 ]; then
+    echo -e "${GREEN}----------- [FINISHED in ${formatted_duration}s with exit code $exit_code] -----------${NC}"
+else
+    echo -e "${RED}----------- [FAILED in ${formatted_duration}s with exit code $exit_code] -----------${NC}"
+fi
+
+exit $exit_code
