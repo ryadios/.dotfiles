@@ -1,4 +1,4 @@
-#!/bin/bash
+#bin/bash
 set -euo pipefail
 
 START_TIME=$(date +%s.%N)
@@ -47,7 +47,7 @@ mkdir -p "$HOME/.config" "$HOME/.local/bin"
 for entry in "${STOW_TARGETS[@]}"; do
   IFS=":" read -r src dst <<< "$entry"
 
-  if stow "$src" -t "$dst" 2>/dev/null; then
+  if stow "$src" -t "$dst"; then
     SYMLINKED+=("$src → $dst")
     ok "Stowed $src"
   else
