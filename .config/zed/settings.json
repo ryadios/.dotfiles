@@ -1,41 +1,33 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "edit_predictions": {
+        "provider": "copilot",
+    },
     "context_servers": {
         "mcp-server-context7": {
             "enabled": true,
             "settings": {
-                "context7_api_key": "ctx7sk-f0c39a70-de7b-429b-96cc-2fe3c6b98476"
-            }
-        }
+                "context7_api_key": "ctx7sk-f0c39a70-de7b-429b-96cc-2fe3c6b98476",
+            },
+        },
     },
     "disable_ai": false,
     "agent": {
         "play_sound_when_agent_done": true,
         "default_model": {
             "provider": "google",
-            "model": "gemini-3-pro-preview"
-        }
+            "model": "gemini-3-pro-preview",
+        },
     },
     "show_edit_predictions": false,
     "theme": "Cursor Dark",
     "project_panel": {
-        "dock": "right",
+        "dock": "left",
         "default_width": 280,
-        "auto_reveal_entries": false
+        "auto_reveal_entries": false,
     },
     "toolbar": {
         "quick_actions": false,
-        "selections_menu": false
-    },
-    "features": {
-        "edit_prediction_provider": "copilot"
+        "selections_menu": false,
     },
     "vim_mode": true,
     "ui_font_size": 16,
@@ -47,20 +39,36 @@
     "tab_size": 4,
     "telemetry": {
         "diagnostics": false,
-        "metrics": false
+        "metrics": false,
     },
     "indent_guides": {
         "enabled": true,
-        "coloring": "indent_aware"
+        "coloring": "indent_aware",
     },
     "languages": {
         "SCSS": {
-            "language_servers": ["scss-lsp"]
+            "language_servers": ["scss-lsp"],
         },
         "C++": {
             "format_on_save": "on",
-            "language_servers": ["clangd"]
-        }
+            "language_servers": ["clangd"],
+        },
+        "TypeScript": {
+            "tab_size": 4,
+        },
+        "QML": {
+            "language_servers": ["qmljs"],
+        },
+    },
+    "lsp": {
+        "qmljs": {
+            "binary": {
+                "path": "/usr/bin/qmlls6",
+            },
+        },
+    },
+    "file_types": {
+        "QML": ["qml"],
     },
     "file_scan_exclusions": [
         "**/.git",
@@ -69,6 +77,26 @@
         "**/.next",
         "**/.nuxt",
         "**/dist",
-        "**/build"
-    ]
+        "**/build",
+    ],
+    "git": {
+        "git_gutter": "tracked_files",
+        "inline_blame": {
+            "enabled": true,
+            "delay_ms": 800,
+        },
+        "gutter_debounce": 300,
+    },
+    "which_key": {
+        "enabled": true,
+        "delay_ms": 200,
+    },
+    "icon_theme": {
+        "mode": "system",
+        "dark": "Material Icon Theme",
+        "light": "Material Icon Theme",
+    },
+    "show_completions_on_input": true,
+    "lsp_document_colors": "background",
+    "soft_wrap": "editor_width",
 }
