@@ -77,7 +77,7 @@
       }
     },
     "memory": {
-      "interval": 30,
+      "interval": 1,
       "format": "  {used} GiB",
       "max-length": 13,
       "tooltip": false
