@@ -15,3 +15,4 @@ SETUVAR _fisher_vitallium_2F_tokyonight_2D_fish_files:\x7e/\x2econfig/fish/theme
 SETUVAR fish_greeting:
 SETUVAR fish_history_max_items:5000
 SETUVAR fish_prompt_pwd_dir_length:0
+SETUVAR fish_user_paths:/home/aditya/\x2eopencode/bin

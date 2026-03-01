@@ -92,3 +92,6 @@ starship init fish | source
 enable_transience
 
 kotofetch
+
+# opencode
+fish_add_path /home/aditya/.opencode/bin
