@@ -112,6 +112,8 @@
       },
       "tooltip": true,
       "on-click": "pgrep -x pavucontrol && pkill -x pavucontrol || pavucontrol &",
+      "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+      "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
       "ignored-sinks": [
         "JamesDSP Sink",
         "Easy Effects Sink",
