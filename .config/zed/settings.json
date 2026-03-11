@@ -1,4 +1,5 @@
 {
+    "format_on_save": "off",
     "edit_predictions": {
         "provider": "copilot",
     },
