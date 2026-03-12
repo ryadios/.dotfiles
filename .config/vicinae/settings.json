@@ -11,6 +11,11 @@
 {
    "$schema": "https://vicinae.com/schemas/config.json",
    "providers": {
+      "@mattisssa/store.raycast.spotify-player": {
+         "preferences": {
+            "closeWindowOnAction": true
+         }
+      },
       "applications": {
          "preferences": {
             "paths": [
@@ -18,6 +23,11 @@
                "/var/lib/flatpak/exports/share/applications",
                "/usr/share/applications"
             ]
+         }
+      },
+      "clipboard": {
+         "preferences": {
+            "monitoring": true
          }
       }
    }
