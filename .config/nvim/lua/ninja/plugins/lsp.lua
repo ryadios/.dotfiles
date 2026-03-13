@@ -13,8 +13,7 @@ return {
         end,
         dependencies = { "saghen/blink.cmp" },
         config = function()
-            local lspconfig = require("lspconfig")
-
+            -- Capabilities
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
@@ -26,6 +25,7 @@ return {
                 },
             })
 
+            -- Hover border
             vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
                 config = config or {}
                 config.border = vim.g.border_style
@@ -59,11 +59,17 @@ return {
                 jdtls = {},
             }
 
-            for server, config in pairs(servers) do
-                lspconfig[server].setup(vim.tbl_deep_extend("force", {
-                    on_attach = on_attach,
-                    capabilities = capabilities,
-                }, config))
+            -- NEW API
+            for server, opts in pairs(servers) do
+                vim.lsp.config(
+                    server,
+                    vim.tbl_deep_extend("force", {
+                        on_attach = on_attach,
+                        capabilities = capabilities,
+                    }, opts)
+                )
+
+                vim.lsp.enable(server)
             end
         end,
     },
