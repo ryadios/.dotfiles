@@ -47,9 +47,6 @@
         "coloring": "indent_aware",
     },
     "languages": {
-        "SCSS": {
-            "language_servers": ["scss-lsp"],
-        },
         "C++": {
             "format_on_save": "on",
             "language_servers": ["clangd"],
@@ -57,19 +54,6 @@
         "TypeScript": {
             "tab_size": 4,
         },
-        "QML": {
-            "language_servers": ["qmljs"],
-        },
-    },
-    "lsp": {
-        "qmljs": {
-            "binary": {
-                "path": "/usr/bin/qmlls6",
-            },
-        },
-    },
-    "file_types": {
-        "QML": ["qml"],
     },
     "file_scan_exclusions": [
         "**/.git",
