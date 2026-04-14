@@ -41,6 +41,7 @@ set -Ux LC_ALL en_US.UTF-8
 set -Ux CLANG_FORMAT_PATH "$HOME/.clang-format"
 set -Ux STARSHIP_CONFIG "$HOME/.config/starship.toml"
 set -Ux ANI_CLI_PLAYER "mpv"
+set -Ux CHROME_PATH "/usr/bin/helium-browser"
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
