@@ -163,6 +163,11 @@
       ],
       "max-length": 25,
       "tooltip": true,
+      "tooltip-format": "Battery health: {health}%",
+      "tooltip-format-discharging": "Empty in {time}\nBattery health: {health}%",
+      "tooltip-format-charging": "Full in {time}\nBattery health: {health}%",
+      "tooltip-format-full": "Battery health: {health}%",
+      "tooltip-format-plugged": "Battery health: {health}%",
       "interval": 5,
       "states": {
         "good": 70,
