@@ -12,15 +12,13 @@ return {
         },
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
-        opts = {},
-    },
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && npm install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
+        opts = {
+            -- Disable rendering in LSP hover / scratch floats (buftype = "nofile")
+            overrides = {
+                buftype = {
+                    nofile = { enabled = false },
+                },
+            },
+        },
     },
 }

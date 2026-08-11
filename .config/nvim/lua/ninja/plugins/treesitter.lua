@@ -8,10 +8,7 @@ return {
         name = "treesitter",
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
         build = ":TSUpdate",
-        event = {
-            "BufReadPost",
-            "BufNewFile",
-        },
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             vim.filetype.add({
                 pattern = {
@@ -22,7 +19,7 @@ return {
                 },
             })
 
-            require("nvim-treesitter.configs").setup({
+            require("nvim-treesitter").setup({
                 ensure_installed = {
                     "vimdoc",
                     "lua",
@@ -31,21 +28,20 @@ return {
                     "jsonc",
                     "html",
                     "css",
+                    "scss",
                     "javascript",
                     "typescript",
                     "tsx",
                     "markdown",
-                    "python",
-                    "cpp",
-                    "java",
+                    "markdown_inline",
+                    "yaml",
                     "dockerfile",
                     "bash",
                     "hyprlang",
                 },
                 ignore_install = {},
                 sync_install = false,
-                auto_install = true,
-                modules = {},
+                auto_install = false,
                 highlight = {
                     enable = true,
                     use_languagetree = true,

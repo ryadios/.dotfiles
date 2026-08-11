@@ -71,27 +71,6 @@ return {
                 end,
             }
 
-            local function get_buffers()
-                local bufs = vim.api.nvim_list_bufs()
-                local bufNumb = 0
-                local function buffer_is_valid(buf_id, buf_name)
-                    return 1 == vim.fn.buflisted(buf_id) and buf_name ~= ""
-                end
-                for idx = 1, #bufs do
-                    local buf_id = bufs[idx]
-                    local buf_name = vim.api.nvim_buf_get_name(buf_id)
-                    if buffer_is_valid(buf_id, buf_name) then
-                        bufNumb = bufNumb + 1
-                    end
-                end
-
-                if bufNumb == 1 then
-                    return bufNumb .. " "
-                else
-                    return bufNumb .. " "
-                end
-            end
-
             local function mason_updates()
                 local registry = require("mason-registry")
                 registry.refresh()
@@ -151,7 +130,7 @@ return {
                     color_warn = { fg = colors.yellow },
                     color_info = { fg = colors.cyan },
                 },
-                color = { bg = mode, gui = "bold" },
+                color = { bg = "None", gui = "bold" },
             }
 
             local function show_macro_recording()
@@ -203,7 +182,7 @@ return {
             }
 
             local mason = {
-                mason_updates() .. "",
+                function() return mason_updates() .. "" end,
                 color = { fg = colors.violet },
                 cond = function()
                     return mason_updates() > 0
@@ -211,15 +190,6 @@ return {
                 icon = "",
                 on_click = function()
                     vim.cmd("Mason")
-                end,
-            }
-
-            local buffers = {
-                get_buffers,
-                icon = nil,
-                -- color = { fg = colors.darkblue, bg = "None" },
-                on_click = function()
-                    require("buffer_manager.ui").toggle_quick_menu()
                 end,
             }
 
@@ -261,7 +231,7 @@ return {
                     lualine_b = { alpha, branch },
                     lualine_c = { diagnostics, macro_recording, sep },
                     lualine_x = { diff, lazy, mason },
-                    lualine_y = { buffers, filetype, progress },
+                    lualine_y = { filetype, progress },
                     lualine_z = { location },
                 },
                 tabline = {},

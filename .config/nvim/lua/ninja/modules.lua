@@ -17,13 +17,11 @@ function M.toggle_flow()
         vim.o.relativenumber = false
         vim.o.number = false
         vim.opt.signcolumn = "yes:4"
-        require("barbecue.ui").toggle(false) -- Disable barbecue winbar
         _G.flow_state = 1
     else
         vim.o.relativenumber = true
         vim.o.number = true
         vim.opt.signcolumn = "auto"
-        require("barbecue.ui").toggle(true) -- Enable barbecue winbar
         _G.flow_state = 0
     end
 end

@@ -11,7 +11,7 @@ opts.initial = function()
     opt.clipboard = "unnamedplus" -- sync system & neovim clipboard
     opt.termguicolors = true -- true terminal color support
     opt.list = true
-    opt.listchars = { trail = "·", nbsp = "␣" } -- show non printable characters
+    opt.listchars = { trail = "·", tab = "▸ ", nbsp = "␣" } -- show non printable characters
     opt.fillchars:append({
         vert = "▏", -- vertical separator character
         horiz = "▁", -- horizontal separator character
@@ -56,7 +56,7 @@ opts.final = function()
     opt.shiftwidth = 4
     opt.smartindent = true
     opt.tabstop = 4
-    opt.expandtab = true
+    opt.expandtab = false
     opt.softtabstop = 4
 
     -- Statusline

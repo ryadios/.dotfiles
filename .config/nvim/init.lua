@@ -4,7 +4,7 @@
 -- │ ┛┗┗┛┗┃┗┻  ╹  ┛┗┗ ┗┛┗┛┗┛┗┗                               │
 -- │      ┛                                                  │
 -- │ Neo(vim) the less is more                               │
--- │              @snky_ninja/dotfiles                       │
+-- │              @ryadios/.dotfiles                         │
 -- ╰─────────────────────────────────────────────────────────╯
 
 require("ninja.options").initial()

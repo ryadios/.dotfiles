@@ -55,13 +55,6 @@ local plugins = {
     },
 
     {
-        "3rd/image.nvim",
-        lazy = false,
-        enabled = false,
-        opts = {},
-    },
-
-    {
         "nvim-tree/nvim-web-devicons",
         config = function()
             require("nvim-web-devicons").setup({
@@ -122,7 +115,6 @@ require("lazy").setup(plugins, {
                 "zipPlugin",
                 "shadafile",
                 "spellfile",
-                "editorconfig",
             },
         },
     },

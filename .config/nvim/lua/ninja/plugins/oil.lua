@@ -33,6 +33,7 @@ return {
                 win_options = {
                     wrap = true,
                     winblend = 0,
+                    signcolumn = "yes:2",
                 },
                 keymaps = {
                     ["<C-c>"] = false,

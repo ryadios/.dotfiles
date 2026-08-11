@@ -21,7 +21,6 @@ return {
                 require("snacks").notifier.show_history()
             end, "Show Notification History", "󰵅"),
         },
-        event = { "BufReadPost" },
         opts = {
             -- words = {
             --     enabled = true,
