@@ -33,8 +33,6 @@ alias cleanup "sudo pacman -Rns (pacman -Qtdq)"
 # Get the error messages from journalctl
 alias jctl "journalctl -p 3 -xb"
 
-zoxide init fish | source
-
 # Env Variables
 set -Ux LANG en_US.UTF-8
 set -Ux LC_ALL en_US.UTF-8
