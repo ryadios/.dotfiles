@@ -1,26 +1,44 @@
 {
-    "format_on_save": "off",
-    "edit_predictions": {
-        "provider": "copilot",
-    },
-    "context_servers": {
-        "mcp-server-context7": {
-            "enabled": true,
-            "settings": {
-                "context7_api_key": "ctx7sk-f0c39a70-de7b-429b-96cc-2fe3c6b98476",
-            },
-        },
-    },
-    "disable_ai": false,
-    "agent": {
-        "play_sound_when_agent_done": true,
-        "default_model": {
-            "provider": "google",
-            "model": "gemini-3-pro-preview",
-        },
-    },
-    "show_edit_predictions": false,
+    // ── Appearance ────────────────────────────────────────────────────────────
+    "cli_default_open_behavior": "existing_window",
     "theme": "Cursor Dark",
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "icon_theme": {
+        "mode": "system",
+        "dark": "Material Icon Theme",
+        "light": "Material Icon Theme",
+    },
+    "lsp_document_colors": "background",
+    "indent_guides": {
+        "enabled": true,
+        "coloring": "indent_aware",
+    },
+
+    // ── Vim / Keybinds ────────────────────────────────────────────────────────
+    "vim_mode": true,
+    "base_keymap": "VSCode",
+    "relative_line_numbers": "enabled",
+    "cursor_blink": true,
+    "which_key": {
+        "enabled": true,
+        "delay_ms": 200,
+    },
+
+    // ── Editor ────────────────────────────────────────────────────────────────
+    "format_on_save": "off",
+    "tab_size": 4,
+    "soft_wrap": "editor_width",
+    "show_completions_on_input": true,
+    "auto_signature_help": false,
+    "completions": {
+        "words": "fallback",
+        "lsp": true,
+        "lsp_fetch_timeout_ms": 400,
+    },
+
+    // ── UI Panels ─────────────────────────────────────────────────────────────
     "project_panel": {
         "dock": "left",
         "default_width": 280,
@@ -30,31 +48,26 @@
         "quick_actions": false,
         "selections_menu": false,
     },
-    "vim_mode": true,
-    "ui_font_size": 16,
-    "buffer_font_size": 16,
-    "buffer_font_family": "JetBrainsMono Nerd Font",
-    "base_keymap": "VSCode",
-    "relative_line_numbers": "enabled",
-    "cursor_blink": true,
-    "tab_size": 4,
+
+    // ── Git ───────────────────────────────────────────────────────────────────
+    "git": {
+        "git_gutter": "tracked_files",
+        "inline_blame": {
+            "enabled": true,
+            "delay_ms": 800,
+        },
+    },
+
+    // ── AI (disabled) ────────────────────────────────────────────────────────
+    "disable_ai": true,
+
+    // ── Telemetry ─────────────────────────────────────────────────────────────
     "telemetry": {
         "diagnostics": false,
         "metrics": false,
     },
-    "indent_guides": {
-        "enabled": true,
-        "coloring": "indent_aware",
-    },
-    "languages": {
-        "C++": {
-            "format_on_save": "on",
-            "language_servers": ["clangd"],
-        },
-        "TypeScript": {
-            "tab_size": 4,
-        },
-    },
+
+    // ── File Indexing ─────────────────────────────────────────────────────────
     "file_scan_exclusions": [
         "**/.git",
         "**/node_modules",
@@ -64,24 +77,39 @@
         "**/dist",
         "**/build",
     ],
-    "git": {
-        "git_gutter": "tracked_files",
-        "inline_blame": {
-            "enabled": true,
-            "delay_ms": 800,
+
+    // ── Language Servers ──────────────────────────────────────────────────────
+    // Zed's default TS setup spawns typescript-language-server + vtsls + eslint
+    // simultaneously. Explicitly pin what we want and disable the rest.
+    "languages": {
+        "C++": {
+            "format_on_save": "on",
+            "language_servers": ["clangd"],
         },
-        "gutter_debounce": 300,
+        "TypeScript": {
+            "tab_size": 4,
+            "prettier": { "allowed": false },
+            "language_servers": [
+                "vtsls",
+                "!typescript-language-server",
+                "tailwindcss-language-server",
+            ],
+        },
+        "TSX": {
+            "prettier": { "allowed": false },
+            "language_servers": [
+                "vtsls",
+                "!typescript-language-server",
+                "tailwindcss-language-server",
+            ],
+        },
+        "JavaScript": {
+            "prettier": { "allowed": false },
+            "language_servers": [
+                "vtsls",
+                "!typescript-language-server",
+                "tailwindcss-language-server",
+            ],
+        },
     },
-    "which_key": {
-        "enabled": true,
-        "delay_ms": 200,
-    },
-    "icon_theme": {
-        "mode": "system",
-        "dark": "Material Icon Theme",
-        "light": "Material Icon Theme",
-    },
-    "show_completions_on_input": true,
-    "lsp_document_colors": "background",
-    "soft_wrap": "editor_width",
 }

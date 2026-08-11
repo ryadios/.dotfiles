@@ -48,6 +48,8 @@
     {
         "context": "vim_mode == normal && !menu",
         "bindings": {
+            "q": null,
+
             "ctrl-g": "editor::SelectAll",
 
             "ctrl-h": "workspace::ActivatePaneLeft",
