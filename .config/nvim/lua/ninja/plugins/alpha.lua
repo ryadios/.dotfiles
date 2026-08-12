@@ -28,7 +28,6 @@ return {
 
             startify.section.top_buttons.val = {
                 startify.button("f", "  " .. "Find Files", ":Pick files <CR>"),
-                startify.button("t", "  " .. "Change Theme", ":Themery <CR>"),
                 startify.button("m", "  " .. "Mason", ":Mason <CR>"),
                 startify.button("l", "󰚰  " .. "LazyUI", ":Lazy <CR>"),
             }
