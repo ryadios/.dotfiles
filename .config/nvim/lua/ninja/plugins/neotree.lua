@@ -12,6 +12,7 @@ return {
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
+        lazy = false,
         cmd = "Neotree",
         keys = {
             require("ninja.mappings").neotree(),
@@ -26,7 +27,7 @@ return {
                 filtered_items = { visible = true },
             },
             window = {
-                position = "right",
+                position = "left",
                 width = 30,
             },
             default_component_configs = {
@@ -38,11 +39,31 @@ return {
                 },
                 modified = {
                     symbol = "",
-                    highlight = "grey",
+                    highlight = "NeoTreeModified",
+                },
+                git_status = {
+                    symbols = {
+                        added = "A",
+                        deleted = "D",
+                        modified = "M",
+                        renamed = "R",
+                        untracked = "U",
+                        ignored = "I",
+                        unstaged = "",
+                        staged = "",
+                        conflict = "!",
+                    },
+                    align = "right",
                 },
             },
             hide_root_node = true,
             retain_hidden_root_indent = false,
         },
+        config = function(_, opts)
+            require("neo-tree").setup(opts)
+            vim.schedule(function()
+                vim.cmd("Neotree filesystem show reveal=false")
+            end)
+        end,
     },
 }
