@@ -12,7 +12,6 @@ return {
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
-        lazy = false,
         cmd = "Neotree",
         keys = {
             require("ninja.mappings").neotree(),
@@ -59,11 +58,5 @@ return {
             hide_root_node = true,
             retain_hidden_root_indent = false,
         },
-        config = function(_, opts)
-            require("neo-tree").setup(opts)
-            vim.schedule(function()
-                vim.cmd("Neotree filesystem show reveal=false")
-            end)
-        end,
     },
 }
