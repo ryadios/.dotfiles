@@ -32,12 +32,6 @@ local plugins = {
     },
 
     {
-        "LudoPinelli/comment-box.nvim",
-        name = "comment-box",
-        lazy = false,
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter-context",
         lazy = false,
     },
