@@ -6,10 +6,29 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         name = "treesitter",
+        lazy = false,
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
         build = ":TSUpdate",
-        event = { "BufReadPost", "BufNewFile" },
         config = function()
+            local parsers = {
+                "vimdoc",
+                "lua",
+                "toml",
+                "json",
+                "html",
+                "css",
+                "scss",
+                "javascript",
+                "typescript",
+                "tsx",
+                "markdown",
+                "markdown_inline",
+                "yaml",
+                "dockerfile",
+                "bash",
+                "hyprlang",
+            }
+
             vim.filetype.add({
                 pattern = {
                     [".env.*"] = "sh",
@@ -19,34 +38,33 @@ return {
                 },
             })
 
-            require("nvim-treesitter").setup({
-                ensure_installed = {
-                    "vimdoc",
-                    "lua",
-                    "toml",
+            require("nvim-treesitter").setup({})
+            require("nvim-treesitter").install(parsers)
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = {
+                    "bash",
+                    "css",
+                    "dockerfile",
+                    "html",
+                    "hyprlang",
+                    "javascript",
+                    "javascriptreact",
                     "json",
                     "jsonc",
-                    "html",
-                    "css",
-                    "scss",
-                    "javascript",
-                    "typescript",
-                    "tsx",
+                    "lua",
                     "markdown",
-                    "markdown_inline",
+                    "scss",
+                    "sh",
+                    "toml",
+                    "typescript",
+                    "typescriptreact",
                     "yaml",
-                    "dockerfile",
-                    "bash",
-                    "hyprlang",
                 },
-                ignore_install = {},
-                sync_install = false,
-                auto_install = false,
-                highlight = {
-                    enable = true,
-                    use_languagetree = true,
-                },
-                indent = { enable = true },
+                callback = function(args)
+                    vim.treesitter.start(args.buf)
+                    vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
             })
         end,
     },

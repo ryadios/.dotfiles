@@ -38,7 +38,7 @@ local plugins = {
 
     {
         "windwp/nvim-ts-autotag",
-        event = "InsertEnter",
+        event = { "BufReadPre", "BufNewFile" },
         opts = {
             opts = {
                 enable_close = true, -- Auto close tags
