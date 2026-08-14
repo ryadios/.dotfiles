@@ -33,7 +33,6 @@ return {
             end
 
             local servers = {
-                biome = {},
                 lua_ls = {},
                 html = {},
                 cssls = {},

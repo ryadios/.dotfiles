@@ -13,14 +13,14 @@ return {
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
-                    typescript = { "biome-check" },
-                    javascript = { "biome-check" },
-                    javascriptreact = { "biome-check" },
-                    typescriptreact = { "biome-check" },
-                    css = { "biome-check" },
-                    html = { "biome-check" },
-                    json = { "biome-check" },
-                    jsonc = { "biome-check" },
+                    typescript = { "biome" },
+                    javascript = { "biome" },
+                    javascriptreact = { "biome" },
+                    typescriptreact = { "biome" },
+                    css = { "biome" },
+                    html = { "biome" },
+                    json = { "biome" },
+                    jsonc = { "biome" },
                     lua = { "stylua" },
                     sh = { "beautysh" },
                 },
