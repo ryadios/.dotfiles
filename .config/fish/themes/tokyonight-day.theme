@@ -1,5 +1,7 @@
-# Upstream: https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_day.fish
-# Syntax Highlighting Colors
+# name: 'TokyoNight Day'
+# url: 'https://github.com/folke/tokyonight.nvim/blob/main/extras/fish/tokyonight_day.fish'
+
+# Syntax highlighting colors
 fish_color_normal 3760bf
 fish_color_command 007197
 fish_color_keyword 9854f1
@@ -16,7 +18,7 @@ fish_color_operator 587539
 fish_color_escape 9854f1
 fish_color_autosuggestion 848cb5
 
-# Completion Pager Colors
+# Completion pager colors
 fish_pager_color_progress 848cb5
 fish_pager_color_prefix 007197
 fish_pager_color_completion 3760bf
