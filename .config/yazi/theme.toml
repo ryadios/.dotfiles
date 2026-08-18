@@ -1,7 +1,0 @@
-[flavor]
-dark = "catppuccin-mocha"
-
-[icon]
-prepend_exts = [
-    { name = "css", text = "󰌜", fg = "#306AF1" }
-]
