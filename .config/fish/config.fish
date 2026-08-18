@@ -1,96 +1,218 @@
-# Format man pages
-set -x MANROFFOPT -c
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+# Environment variables
+set --global --export EDITOR nvim
+set --global --export VISUAL nvim
+set --global --export LANG en_US.UTF-8
+set --global --export LC_ALL en_US.UTF-8
+set --global --export CHROME_PATH /usr/bin/helium-browser
 
-function fish_greeting
-    # fastfetch
+# Shell settings
+set --global fish_greeting
+
+if not functions -q __fish_native_cd
+    functions --copy cd __fish_native_cd
 end
 
-set -U fish_prompt_pwd_dir_length 0
-
-set -U fish_history_max_items 5000
-
 # Aliases
-alias cp "cp -i"
-alias rm-rf "rm -rfi"
-alias mv "mv -i"
-alias clear "command clear; commandline -f clear-screen"
+abbr --add --global .. 'cd ..'
+abbr --add --global ... 'cd ../..'
+alias ll 'eza --icons --group-directories-first -l -a'
+alias z cd
+alias jump zi
+alias zls 'zoxide query --list'
+alias update '$HOME/.config/waybar/bin/update up'
 
-alias ld "eza -lhD --icons=auto"  # long list dirs
-alias lt "eza --icons=auto --tree"  # list folder as tree
-alias l "eza -lh --icons=auto"  # long list
-alias ls "eza -1 --icons=auto"  # short list
-alias ll "eza -lha --icons=auto --sort=name --group-directories-first"
+# Functions
+function ls --wraps eza --description 'List files with eza'
+    eza --icons --group-directories-first $argv
+end
 
-alias y "yazi"
+function y --wraps yazi --description 'Open yazi and change directory on exit'
+    set -l tmp (mktemp -t yazi-cwd.XXXXXX)
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and test -n "$cwd"; and test "$cwd" != "$PWD"
+        __fish_native_cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
 
-alias .. "cd .."
-alias ... "cd ../.."
+function fd --description 'Find and enter a directory'
+    if not command -sq fzf
+        echo 'fzf is not installed.' >&2
+        return 127
+    end
 
-# Cleanup orphaned packages
-alias cleanup "sudo pacman -Rns (pacman -Qtdq)"
+    set -l selected (
+        command find "$HOME" \
+            \( -path "$HOME/.cache" -o -path "$HOME/.git" -o -path '*/node_modules' \) -prune \
+            -o -type d -print 2>/dev/null |
+        fzf --height=40% --layout=reverse --border \
+            --preview 'eza --tree --level=2 --icons=auto --color=always {}'
+    )
 
-# Get the error messages from journalctl
-alias jctl "journalctl -p 3 -xb"
+    test -n "$selected"; or return 130
+    __fish_native_cd -- "$selected"
+end
 
-# Env Variables
-set -Ux LANG en_US.UTF-8
-set -Ux LC_ALL en_US.UTF-8
-set -Ux CLANG_FORMAT_PATH "$HOME/.clang-format"
-set -Ux STARSHIP_CONFIG "$HOME/.config/starship.toml"
-set -Ux ANI_CLI_PLAYER "mpv"
-set -Ux CHROME_PATH "/usr/bin/helium-browser"
+function ff --description 'Find and open a file or directory'
+    if not command -sq fzf
+        echo 'fzf is not installed.' >&2
+        return 127
+    end
 
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
+    set -l selected (
+        command find . \
+            \( -path './.git' -o -path '*/node_modules' \) -prune \
+            -o -print 2>/dev/null |
+        fzf --height=40% --layout=reverse --border \
+            --preview 'if test -d {}; eza --tree --level=2 --icons=auto --color=always {}; else bat --style=numbers --color=always --line-range=:200 {}; end'
+    )
 
-# Transient Prompt
+    test -n "$selected"; or return 130
+
+    if test -d "$selected"
+        __fish_native_cd -- "$selected"
+    else if string match -q -r '\.(c|cc|cpp|h|hh|hpp|lua|py|rs|sh|toml|ts|tsx|js|jsx|json|yaml|yml)$' -- "$selected"
+        nvim -- "$selected"
+    else
+        xdg-open "$selected" >/dev/null 2>&1 &
+    end
+end
+
+function cd --description 'Change directory or jump with zoxide'
+    if test (count $argv) -eq 0
+        __fish_native_cd
+        return $status
+    end
+
+    if test (count $argv) -ne 1
+        __fish_native_cd $argv
+        return $status
+    end
+
+    set -l target $argv[1]
+    if test "$target" = -
+        __fish_native_cd $argv
+        return $status
+    end
+
+    if test -d "$target"
+        __fish_native_cd -- "$target"
+        return $status
+    end
+
+    if not command -sq zoxide
+        echo "cd: '$target' is not a directory and zoxide is not installed." >&2
+        return 127
+    end
+
+    set -l matches (command zoxide query --list -- $argv 2>/dev/null)
+    if test (count $matches) -eq 0
+        echo "cd: no matching directory for '$target'." >&2
+        return 1
+    end
+
+    if test (count $matches) -gt 1
+        set target (
+            printf '%s\n' $matches |
+            fzf --height=40% --layout=reverse --border \
+                --preview 'eza --tree --level=2 --icons=auto --color=always {}'
+        )
+        test -n "$target"; or return 130
+    else
+        set target $matches[1]
+    end
+
+    __fish_native_cd -- "$target"
+end
+
+function zi --description 'Interactively jump with zoxide'
+    set -l target (command zoxide query --interactive -- $argv 2>/dev/null)
+    test -n "$target"; or return 130
+    __fish_native_cd -- "$target"
+end
+
+function za --description 'Add the current directory to zoxide'
+    command zoxide add "$PWD"
+end
+
+function zr --description 'Remove a directory from zoxide'
+    if test (count $argv) -gt 0
+        command zoxide remove $argv
+        return $status
+    end
+
+    set -l target (command zoxide query --interactive 2>/dev/null)
+    test -n "$target"; or return 130
+    command zoxide remove -- "$target"
+end
+
+function ze --description 'Browse and edit the zoxide database'
+    set -l result (
+        command zoxide query --list --score 2>/dev/null |
+        fzf --height=60% --layout=reverse --border --expect=ctrl-d
+    )
+    test (count $result) -ge 2; or return 130
+
+    set -l action $result[1]
+    set -l target (string replace -r '^[[:space:]]*[^[:space:]]+[[:space:]]+' '' -- "$result[2]")
+    test -n "$target"; or return 1
+
+    if test "$action" = ctrl-d
+        command zoxide remove -- "$target"
+    else
+        __fish_native_cd -- "$target"
+    end
+end
+
+function ocd --description 'Change directory with fish native behavior'
+    __fish_native_cd $argv
+end
+
+function zcd --description 'Force an interactive zoxide jump'
+    zi $argv
+end
+
+function cleanup --description 'Remove orphaned Arch packages'
+    if not command -sq pacman
+        echo 'pacman is not installed.' >&2
+        return 127
+    end
+
+    set -l orphans (command pacman -Qtdq 2>/dev/null)
+    if test (count $orphans) -eq 0
+        echo 'No orphan packages found.'
+        return 0
+    end
+
+    sudo pacman -Rns $orphans
+end
+
 function starship_transient_prompt_func
-    tput cuu1 # Moves up one line
     starship module character
 end
 
-function prompt_newline --on-event fish_postexec
-    echo # Adds new line after each cmd
+function prompt_newline --on-event fish_postexec --on-event fish_posterror
+    echo
 end
 
-function starship_transient_rprompt_func
-    starship module cmd_duration
-end
+# Key bindings
+bind \cf 'ff; commandline -f repaint'
+bind \cg 'fd; commandline -f repaint'
+bind \ck 'sesh picker'
 
-function sesh-sessions
-    if set -q TMUX
-        return
+# Path
+set --global --export BUN_INSTALL "$HOME/.bun"
+set --global PATH (string match --invert -- "$BUN_INSTALL/bin" $PATH)
+fish_add_path --path "$BUN_INSTALL/bin"
+
+if status is-interactive
+    # Interactive session
+    fish_config theme choose tokyonight-night
+    if command -sq atuin
+        atuin init fish | source
     end
-    set session (
-        sesh list --icons | fzf-tmux -p 80%,70% \
-            --no-sort --ansi --border-label ' sesh ' --border --prompt '⚡  ' \
-            --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
-            --bind 'tab:down,btab:up' \
-            --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-            --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
-            --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
-            --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
-            --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
-            --preview-window 'right:55%' \
-            --preview 'sesh preview {}'
-    )
-    if test -n "$session"
-        sesh connect $session
-    end
+    starship init fish | source
+    zoxide init --cmd j fish | source
+    enable_transience
+    kotofetch
 end
-
-bind \ck sesh-sessions
-
-bind \cg 'gitui; commandline -f repaint'
-
-starship init fish | source
-
-enable_transience
-
-kotofetch
-
-# opencode
-fish_add_path /home/aditya/.opencode/bin
