@@ -61,12 +61,6 @@ disabled = false
 [fill]
 symbol = " "
 
-[cmd_duration]
-min_time = 1000
-format = "([󰪢 $duration]($style) )"
-style = "fg:"
-show_milliseconds = false
-
 [package]
 symbol = "󰏗"
 format = "([$symbol( $version)]($style) )"
