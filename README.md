@@ -54,7 +54,7 @@ yay -S \
 ##### Optional
 
 ```bash 
-yay -S batsignal mpv dua-cli gnome-calendar rofimoji udiskie vimiv zathura gitui
+yay -S batsignal mpv dua-cli gnome-calendar rofimoji udiskie vimiv zathura
 ```
 
 ### Setup
@@ -104,4 +104,3 @@ yay -S zen-browser-bin
 ![image](./docs/assets/spotify.png)
 
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
-
