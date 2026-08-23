@@ -38,7 +38,7 @@ yay -S \
   # Terminal & Shell Related
   kitty fish starship aurutils eza sesh-bin \
   # Utility Packages
-  pipewire cliphist grimblast-git jq brightnessctl fastfetch fcitx5 \
+  pipewire grimblast-git jq brightnessctl fastfetch fcitx5 \
   # DE Widgets / UI Tools
   waybar vicinae rofi-lbonn-wayland-git mako btop cava pavucontrol awww-git wlogout \
   # Theming / Appearance
