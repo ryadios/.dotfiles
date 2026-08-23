@@ -7,7 +7,7 @@
     "margin-left": 0,
     "margin-right": 0,
     "modules-left": [
-      "custom/rofi",
+      "custom/cheatsheet",
       "hyprland/workspaces",
       "mpris"
     ],
@@ -18,19 +18,15 @@
       "memory",
       "tray",
       "backlight",
-      "network",
       "bluetooth",
       "pulseaudio",
       "battery",
       "group/utils"
     ],
-    "custom/rofi": {
+    "custom/cheatsheet": {
       "format": "󰘳",
-      "on-click": "rofi -show drun",
-      "on-click-middle": "pkill -9 rofi",
-      "tooltip-format": "{}",
-      "exec": "~/.config/waybar/bin/cheatsheet.py",
-      "interval": "once"
+      "on-click": "vicinae open",
+      "tooltip-format": "Open Vicinae"
     },
     "hyprland/workspaces": {
       "all-outputs": true,
@@ -120,26 +116,6 @@
         "HDA NVidia Digital Stereo (HDMI)"
       ]
     },
-    "network": {
-      "format": "{icon}",
-      "format-icons": {
-        "wifi": [
-          "󰤨"
-        ],
-        "ethernet": [
-          "󰈀"
-        ],
-        "disconnected": [
-          "󰖪"
-        ]
-      },
-      "format-wifi": "󰤨  {essid}",
-      "format-ethernet": "󰈀  {ipaddr}/{cidr}",
-      "format-disconnected": "󰤭",
-      "format-linked": "󰈁",
-      "tooltip": false,
-      "on-click": "pgrep -x rofi &>/dev/null && notify-send rofi || networkmanager_dmenu"
-    },
     "bluetooth": {
       "format-on": "",
       "format-off": "󰂲",
@@ -188,7 +164,6 @@
         "custom/notifications",
         "custom/color-picker",
         "custom/screenshot",
-        "custom/wallpaper",
         "power-profiles-daemon"
       ]
     },
@@ -216,7 +191,6 @@
       "format": "<b>{}</b> ",
       "exec": "noti-cycle -j",
       "on-click": "noti-cycle",
-      "on-click-right": "noti-cycle rofi",
       "return-type": "json",
       "interval": "once",
       "signal": 2
@@ -231,12 +205,6 @@
       "on-click": "~/.config/waybar/bin/screenshot_full",
       "on-click-right": "~/.config/waybar/bin/screenshot_area",
       "tooltip-format": "Left-click:  Full Screen Screenshot\nRight-click: Area Screenshot"
-    },
-    "custom/wallpaper": {
-      "format": "󰸉",
-      "on-click": "waypaper --random",
-      "on-click-right": "waypaper",
-      "tooltip-format": "Left-click:  Change Wallpaper\nRight-click: Open Wallpaper Picker"
     },
     "power-profiles-daemon": {
       "format": "{icon}",
