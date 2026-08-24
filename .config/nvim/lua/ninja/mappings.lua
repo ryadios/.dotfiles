@@ -242,8 +242,7 @@ M.conform = function()
 end
 
 M.neotree = function()
-    -- `show` flag -> no focus
-    map("n", "<leader>ee", "<cmd>Neotree toggle show<CR>", "Neotree Toggle", icons.tree)
+    map("n", "<leader>ee", "<cmd>Neotree toggle<CR>", "Neotree Toggle", icons.tree)
     map("n", "<leader>eg", "<cmd>Neotree git_status show<CR>", "Neotree Git Status", icons.tree)
     map("n", "<leader>eb", "<cmd>Neotree buffers<CR> show", "Neotree Buffers", icons.tree)
 end

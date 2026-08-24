@@ -33,7 +33,21 @@ return {
             end
 
             local servers = {
-                lua_ls = {},
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "hl" },
+                            },
+                            workspace = {
+                                library = {
+                                    "/usr/share/hypr/stubs",
+                                },
+                                checkThirdParty = false,
+                            },
+                        },
+                    },
+                },
                 html = {},
                 cssls = {},
                 tailwindcss = {},
