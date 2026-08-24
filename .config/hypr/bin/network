@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Check connection state
 state=$(nmcli -t -f STATE general status)
 
 case "$state" in
@@ -11,11 +10,9 @@ case "$state" in
         printf "󱍸"
         ;;
     "connected (local only)"|"connected (site only)"|"connected")
-        # Check if it's WiFi and get signal strength
         wifi_info=$(nmcli -t -f IN-USE,SIGNAL dev wifi | grep '^\*')
 
         if [[ -n "$wifi_info" ]]; then
-            # Extract signal strength
             strength=$(echo "$wifi_info" | cut -d: -f2)
 
             if [[ "$strength" =~ ^[0-9]+$ ]]; then
@@ -29,13 +26,13 @@ case "$state" in
                     printf "󰤨"
                 fi
             else
-                printf "󰈀"  # Unknown strength
+                printf "󰈀"
             fi
         else
-            printf "󰈀"  # Not WiFi or no signal info
+            printf "󰈀"
         fi
         ;;
     *)
-        printf "󰤮"  # Unknown state, assume disconnected
+        printf "󰤮"
         ;;
 esac

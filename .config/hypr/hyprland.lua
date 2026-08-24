@@ -1,0 +1,6 @@
+require("lua.environment")
+require("lua.appearance")
+require("lua.input")
+require("lua.bindings")
+require("lua.rules")
+require("lua.startup")
