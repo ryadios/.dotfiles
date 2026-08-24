@@ -1,66 +1,58 @@
 #!/usr/bin/env bash
 
-MOD="5%"
-
-check() {
-    command -v "$1" 1>/dev/null
-}
+sink=@DEFAULT_AUDIO_SINK@
+step=5%
 
 notify() {
-    check notify-send && notify-send -a "Volume" "$@" || echo "$@"
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send -a Volume "$@"
+    else
+        echo "$@"
+    fi
 }
 
-check pactl || {
-    notify "Pactl is not present"
+command -v wpctl >/dev/null 2>&1 || {
+    notify "wpctl is not available"
     exit 1
 }
-[[ "$(pactl get-sink-mute @DEFAULT_SINK@)" == *"no"* ]] && mute=false || mute=true
 
-toggleMute() {
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-    $mute && mute=false || mute=true
+is_muted() {
+    wpctl get-volume "$sink" | grep -q MUTED
 }
 
-getVolume() {
-    pactl get-sink-volume @DEFAULT_SINK@ | grep -o '\w\+%' | head -n1 | sed 's/%//g'
+volume_percent() {
+    wpctl get-volume "$sink" | awk '/Volume:/ { printf "%d", $2 * 100 }'
 }
 
 send_notification() {
-    $mute && {
+    if is_muted; then
         notify "Muted"
         return
-    }
-    volume="$(getVolume)%"
-    # notify \
-        #   --hint=string:x-dunst-stack-tag:volume \
-        #   -a "Volume" -u low \
-        #   -h int:value:"$volume" "Volume: ${volume}" \
-        #   -t 1000
+    fi
+
+    local volume
+    volume=$(volume_percent)
     notify \
         --hint=string:x-dunst-stack-tag:volume \
         --hint=string:synchronous:volume \
-        -a "Volume" -u low \
-        -h int:value:"$volume" "Volume: ${volume}" \
-        -t 1000
+        -u low -h int:value:"$volume" "Volume: ${volume}%" -t 1000
 }
 
-case $1 in
-    up)
-        $mute && toggleMute
-        [ $(($(getVolume))) -gt 145 ] && {
-            send_notification
-            exit
-        }
-        pactl set-sink-volume @DEFAULT_SINK@ +${MOD}
-        send_notification
-        ;;
-    down)
-        $mute && toggleMute
-        pactl set-sink-volume @DEFAULT_SINK@ -${MOD}
+case "$1" in
+    up|down)
+        is_muted && wpctl set-mute "$sink" 0
+        if [[ "$1" == up ]]; then
+            wpctl set-volume "$sink" "${step}+" --limit 1.0
+        else
+            wpctl set-volume "$sink" "${step}-"
+        fi
         send_notification
         ;;
     mute)
-        toggleMute
+        wpctl set-mute "$sink" toggle
         send_notification
+        ;;
+    *)
+        exit 2
         ;;
 esac

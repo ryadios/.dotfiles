@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source=@DEFAULT_AUDIO_SOURCE@
+
+wpctl set-mute "$source" toggle
+
+case "$(wpctl get-volume "$source")" in
+    *MUTED*) state=Muted ;;
+    *) state=On ;;
+esac
+
+notify-send \
+    -a Volume \
+    -t 1500 \
+    -h string:x-canonical-private-synchronous:micmute \
+    "Microphone: $state"

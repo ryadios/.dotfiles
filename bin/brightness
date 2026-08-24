@@ -1,40 +1,39 @@
 #!/usr/bin/env bash
 
-check() {
-    command -v "$1" 1>/dev/null
-}
-
 notify() {
-    check notify-send && {
+    if command -v notify-send >/dev/null 2>&1; then
         notify-send "$@"
-        } || {
+    else
         echo "$@"
-    }
+    fi
 }
 
-check brightnessctl || {
+command -v brightnessctl >/dev/null 2>&1 || {
     notify "Brightnessctl is not available"
-    exit
+    exit 1
 }
 
 send_notification() {
-    brightness=$(($(brightnessctl g) * 100 / $(brightnessctl m)))
-    brightness=${brightness%.*}
+    local brightness
+    brightness=$(( $(brightnessctl g) * 100 / $(brightnessctl m) ))
     notify \
         --hint=string:x-dunst-stack-tag:brightness \
         --hint=string:synchronous:brightness \
-        -a "Brightness" \
+        -a Brightness \
         -h int:value:"$brightness" \
         "Brightness: ${brightness}%"
 }
 
-case $1 in
+case "$1" in
     up)
-        brightnessctl s +5%
+        brightnessctl set 5%+
         send_notification
         ;;
     down)
-        brightnessctl s 5%-
+        brightnessctl set 5%-
         send_notification
+        ;;
+    *)
+        exit 2
         ;;
 esac
