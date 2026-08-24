@@ -10,10 +10,54 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
+   "pop_to_root_on_close": true,
+   "escape_key_behavior": "",
+   "font": {
+      "normal": {
+         "size": 10.5
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "vicinae-dark"
+      }
+   },
+   "launcher_window": {
+      "opacity": 1,
+      "client_side_decorations": {
+         "enabled": true
+      },
+      "compact_mode": {
+         "enabled": true
+      },
+      "layer_shell": {
+         "enabled": true
+      },
+      "material": "none"
+   },
    "providers": {
       "@mattisssa/store.raycast.spotify-player": {
          "preferences": {
             "closeWindowOnAction": true
+         }
+      },
+      "@sovereign/store.vicinae.awww-switcher": {
+         "preferences": {
+            "wallpaperPath": "~/Wallpaper/assets/",
+            "colorGenTool": "none",
+            "gridRows": "4",
+            "postProduction": "no",
+            "showImageDetails": true,
+            "toggleVicinaeSetting": false,
+            "transitionDuration": "3",
+            "transitionFPS": "60",
+            "transitionStep": "90",
+            "transitionType": "wipe"
+         },
+         "entrypoints": {
+            "wpgrid": {
+               "alias": "Wallpaper"
+            }
          }
       },
       "applications": {
@@ -28,6 +72,15 @@
       "clipboard": {
          "preferences": {
             "monitoring": true
+         }
+      },
+      "files": {
+         "preferences": {
+            "autoIndexing": false,
+            "excludedIndexingPaths": [],
+            "indexingPaths": [
+               "/home/aditya"
+            ]
          }
       }
    }
