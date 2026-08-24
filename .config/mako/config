@@ -1,20 +1,30 @@
-layer=overlay
 anchor=top-right
-background-color=#181825
+layer=overlay
+
+font=SF Display Pro 10
+
+background-color=#0f0f0f
+text-color=#f0f0f0
+
 border-color=#7aa2f7
 border-radius=5
 border-size=1
+
 margin=15,20
 padding=10
+
 width=355
 height=200
-text-color=#cdd6f4
-font=SF Display Pro 10
+
 max-icon-size=64
-max-visible=10
+max-visible=4
+
 default-timeout=5000
-progress-color=#313244
+progress-color=over #262626ff
 
 [urgency=high]
 border-color=#ed8796
 default-timeout=10000
+
+[mode=do-not-disturb]
+invisible=1
