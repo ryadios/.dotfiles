@@ -20,10 +20,6 @@ return {
                 floats = "transparent",
             },
             on_highlights = function(hl, c)
-                hl["@variable"] = { fg = c.red }
-                hl["@lsp.type.variable"] = { link = "@variable" }
-                hl["@variable.parameter"] = { fg = c.fg }
-
                 local git = {
                     add = c.green,
                     change = c.yellow,

@@ -102,7 +102,19 @@ M.general = function()
     map("v", "??", 'y:h <C-R>"<cr>"') -- Show vim help
     map("v", "?/", 'y:/ <C-R>"<cr>"') -- Search across the buffer
 
-    map("n", "<leader>rn", [[:w<CR>:!g++ %:p -o %:p:r && %:p:r<CR>]], "[R]un [N]ow")
+    map("n", "<leader>rn", function()
+        vim.cmd.write()
+        local source = vim.fn.expand("%:p")
+        local output = vim.fn.tempname()
+        local cleanup = ("rm -f -- %s"):format(vim.fn.shellescape(output))
+        local command = ("trap %s EXIT; g++ %s -o %s && %s"):format(
+            vim.fn.shellescape(cleanup),
+            vim.fn.shellescape(source),
+            vim.fn.shellescape(output),
+            vim.fn.shellescape(output)
+        )
+        require("snacks").terminal.open(command, { cwd = vim.fn.expand("%:p:h"), auto_close = false })
+    end, "[R]un [N]ow")
 end
 
 M.misc = function()

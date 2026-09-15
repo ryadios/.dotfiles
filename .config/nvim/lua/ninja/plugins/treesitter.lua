@@ -17,6 +17,7 @@ return {
                 "json",
                 "html",
                 "css",
+                "cpp",
                 "scss",
                 "javascript",
                 "typescript",
@@ -45,6 +46,7 @@ return {
                 pattern = {
                     "bash",
                     "css",
+                    "cpp",
                     "dockerfile",
                     "html",
                     "hyprlang",

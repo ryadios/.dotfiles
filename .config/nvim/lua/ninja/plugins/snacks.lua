@@ -52,8 +52,12 @@ return {
                     winblend = vim.g.winblend,
                 },
             },
-            -- TODO: Check out snacks terminal
-            -- terminal = {},
+            terminal = {
+                win = {
+                    position = "bottom",
+                    height = 0.3,
+                },
+            },
         },
     },
 }
