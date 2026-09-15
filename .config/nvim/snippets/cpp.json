@@ -1,0 +1,18 @@
+{
+  "Competitive programming": {
+    "prefix": "cp",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "int main() {",
+      "\tios::sync_with_stdio(false);",
+      "\tcin.tie(nullptr);",
+      "",
+      "\t$0",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Competitive programming starter"
+  }
+}

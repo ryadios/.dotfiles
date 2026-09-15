@@ -6,7 +6,7 @@ return {
     {
         "saghen/blink.cmp",
         version = "v0.*",
-        event = { "LspAttach" },
+        event = { "InsertEnter", "LspAttach" },
         dependencies = {
             "rafamadriz/friendly-snippets",
             "onsails/lspkind.nvim",
